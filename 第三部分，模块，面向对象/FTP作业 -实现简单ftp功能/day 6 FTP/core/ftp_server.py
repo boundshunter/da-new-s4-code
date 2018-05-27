@@ -18,6 +18,7 @@ class Ftp_server(object):
         self.server = config.socket
         self.server.bind(config.ip_port)
         self.server.listen(config.listen_num)
+        self.home_dir = config.user_home_dir
         self.manager()
 
 
@@ -25,9 +26,9 @@ class Ftp_server(object):
     def user_regist(self):
         user_name = input("请输入您要创建的用户名：").strip()
         user_password = input("请输入创建用户的密码：").strip()
-        self.user_obj = User_auth
-        self.user_obj.create_user(user_name, user_password)
-
+        self.user_obj = User_auth(user_name, user_password)
+        # self.user_obj = User_auth()
+        # self.user_obj.create_user(user_name, user_password)
 
 
     def server_start(self):
@@ -50,38 +51,36 @@ class Ftp_server(object):
                 print("server start :", res)
                 if hasattr(self, action):
                     server = getattr(self, action)
-                    server(res[1])
+                    server(res)
                 else:
-                    print("您输入的命令有误，请重新输入")
+                    print("[反射]您输入的命令有误，请重新输入")
+    def ls(self, cmd):
+        print("server端接收命令：", cmd[0])
+        # 对接收命令进行处理
+        res = os.popen("%s", cmd[0]).read()
+        # 将处理结果发送到客户端
+        self.server.send(res.)
+
 
     def auth(self, cmd):
-        print(cmd)
-        user = config.user_auth_file+cmd+'.db'
-        print("\033[35;1m user \033[0m", user)
-        # print("认证配置路径:%s \n文件名：%s" % (config.user_auth_file, cmd))
-        # print("auth:", user)
-        # 判断用户文件是否存在
-        '''
-        # aa = User_auth("alex", "abc")
-        # user = config.user_auth_file+'alex.db'
-        # print(user)
-        # aa.db_handler_load(user)
-        '''
-        if os.path.isfile(user):
-            user_db = self.user_obj.db_handler_load(user)
-            # user_db = User_auth.db_handler_load(user)
-            if user_db['username'] == cmd[1]:
-                if user_db['password'] == cmd[2]:
-                    self.conn.send("User auth success".encode())
+        print(cmd[1])
+        user_dir = config.user_auth_file+cmd[1]+'.db'
+        print("\033[35;1m user \033[0m", user_dir)
+        # 判断文件存在
+        if os.path.isfile(user_dir):
+            with open(user_dir) as f:
+                res = eval(f.read())
+                # print("server_res", type(res))
+
+                if res['username'] == cmd[1]:
+                    if res['password'] == cmd[2]:
+                        self.conn.send("User auth success".encode())
+                    else:
+                        self.conn.send('User auth fail'.encode())
                 else:
-                    self.conn.send("Password is wrong.".encode())
-            else:
-                self.conn.send("Username is not exist.".encode())
+                    self.conn.send('User auth fail'.encode())
         else:
-            self.conn.send("Username is not exist.".encode())
-
-
-
+            self.conn.send('User not found'.encode())
 
     def manager(self):
         menu = u'''
@@ -98,9 +97,11 @@ class Ftp_server(object):
             print(menu)
             print("\033[35;1m请输入选项的序号\033[0m")
             user_ops = input("请输入选项：").strip()
-            action = menu_dic[user_ops]
-            if hasattr(self, action):
-                func = getattr(self, action)()
-
+            if user_ops in menu_dic:
+                action = menu_dic[user_ops]
+                if hasattr(self, action):
+                    func = getattr(self, action)()
+                else:
+                    print("内置方法有误.")
             else:
-                print("您的选项有误，请重新选择。")
+                print("您的选项有误，请重新选择")

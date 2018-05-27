@@ -20,7 +20,7 @@ class ftpServer:
         while True:
             print("服务器正在等待连接...")
             self.conn,self.addr = self.server.accept()
-            print("一个连接建立",self.conn)
+            print("一个连接建立", self.conn)
             while True:
                 self.data = self.conn.recv(1024)
                 if not self.data: # 判断接收为空
@@ -29,15 +29,15 @@ class ftpServer:
                 # 数据不为空，继续执行
                 res = self.data.decode().split() # py3 中每一步都接收和发送都需要转码
                 action = res[0] # 获取接收执行动作
-                print("start:",action)
-                if hasattr(self,action): # 反射
-                    fc = getattr(self,action) # 存在获取执行动作
-                    fc(res) # fc 相当于先对对象实例化，然后实例化后调用传入的方法action，然后在执行action方法，需要传入参数传入参数，只有self则不传入参数
-                    fc('ls') # d = obj()   d.ls('ls')
+                print("start:", action)
+                if hasattr(self, action):  # 反射
+                    fc = getattr(self, action)  # 存在获取执行动作
+                    fc(res)  # fc 相当于先对对象实例化，然后实例化后调用传入的方法action，然后在执行action方法，需要传入参数传入参数，只有self则不传入参数
+                    fc('ls')  # d = obj()   d.ls('ls')
                 else:
                     print("输入错误")
 
-    def auth(self,cmd):
+    def auth(self, cmd):
         print(cmd) # cmd 格式 auth username password
         user = self.userobj.get_user(cmd[1]) # 从获取用户名中去 userauth中做认证，userauth，认证成功返回user的字典
         print(user)
@@ -70,7 +70,7 @@ class ftpServer:
             else:
                 print("\033[41[1maction：put,server received complete\033[0m")
 
-    def ls(self,cmd):
+    def ls(self, cmd):
 
         user_path = self.user_home
         print('\033[42;1maaa\033[0m',(user_path,cmd[0]))

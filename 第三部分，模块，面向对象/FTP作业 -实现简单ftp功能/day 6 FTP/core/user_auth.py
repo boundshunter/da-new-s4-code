@@ -8,7 +8,6 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR)
 
-
 from conf import config
 
 class User_auth(object):
@@ -18,18 +17,34 @@ class User_auth(object):
         self.user_home_dir = config.user_home_dir + user_name
         self.user_manage()
 
+    # def __init__(self):
+    #     pass
 
     def user_manage(self):
         '''
         用户认证，用户存在，提示，用户不存在则将数据序列化到文件(json)
         :return:
         '''
+
         user_db_file = config.user_auth_file + self.user_name + '.db'
         print(user_db_file)
         if os.path.isfile(user_db_file):
             print("用户已经存在，请使用其他用户")
         else:
             self.db_handler_dump()
+    # def user_manage(self, user_name, user_password):
+    #     '''
+    #     用户认证，用户存在，提示，用户不存在则将数据序列化到文件(json)
+    #     :return:
+    #     '''
+    #
+    #     user_db_file = config.user_auth_file + user_name + '.db'
+    #     print(user_db_file)
+    #     if os.path.isfile(user_db_file):
+    #         print("用户已经存在，请使用其他用户")
+    #     else:
+    # #         user_db = self.db_handler_dump()
+    #           return user_db
 
     def db_handler_dump(self):
         '''

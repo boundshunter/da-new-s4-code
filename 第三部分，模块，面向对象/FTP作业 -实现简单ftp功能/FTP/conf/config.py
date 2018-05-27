@@ -9,7 +9,7 @@ import socket
 BASE_DIR = os.path.dirname( os.path.dirname( os.path.abspath(__file__) ) )
 
 # Ip和port信息
-IP_PORT = ('127.0.0.1',9999)
+IP_PORT = ('127.0.0.1', 9999)
 
 
 # 用户数据

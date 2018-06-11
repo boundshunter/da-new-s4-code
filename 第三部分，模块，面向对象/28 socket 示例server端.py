@@ -19,4 +19,3 @@ while True:
         if not data:break
         print("recv:",data)
         conn.send(data.upper()) # 发送大写的返回数据
-        # os.pop

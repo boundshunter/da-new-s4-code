@@ -68,3 +68,6 @@ class Ftp_client(object):
         # if len(cmd) == 1:
         for k, v in self.help.items():
             print("%s ：%s" % (k, v))
+
+
+            print("aaa")

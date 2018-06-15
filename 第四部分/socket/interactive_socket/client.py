@@ -5,8 +5,7 @@ __author__ = 'jfsu'
 import socket
 client = socket.socket()
 # client.connect(('127.0.0.1',9999))
-client.connect(('10.0.1.110',9999))
-
+client.connect(('127.0.0.1',9999))
 
 while True:
     cmd = input(">>:").strip()
@@ -15,6 +14,7 @@ while True:
     client.send(cmd.encode())
     total_size = client.recv(1024).decode() # 接收大小
     print("total_size:",total_size)
+    send_ack = client.send("ok".encode()) # 增加一次交互，防止服务端粘包，连续发送给客户端
     recv_size = 0
     recv_data = b''
     while recv_size < int(total_size):

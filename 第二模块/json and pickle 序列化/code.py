@@ -19,7 +19,7 @@ with open("data.txt",'r') as f:
 # eval不是通用，标准的反序列化工具
 # json 是标准的
 import json
-f = open('test.txt','w')
+f = open('test.txt', 'w')
 a = json.dumps(info)  #标准序列化
 f.write(a)
 f.close()

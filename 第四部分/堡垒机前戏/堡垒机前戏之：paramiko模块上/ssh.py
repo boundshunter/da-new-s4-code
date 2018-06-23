@@ -10,12 +10,16 @@ ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
 # 连接服务器
-ssh.connect(hostname='10.0.1.110',port=22,username='root',password='dongao.com123')
+ssh.connect(hostname='10.0.1.200',port=22,username='root',password='dongao@(*&IT')
 
 #执行命令
-stdin,stdout,stderr = ssh.exec_command('df -h')
+stdin,stdout,stderr = ssh.exec_command("top -bn 1")
+# l = []
+rlt = stdout.read() # 默认是bytes格式
+print(rlt.decode())
+# for i in rlt:
+#     l.append(i)
 
-rlt = stdout.read()
-print(rlt)
+# print(l)
 
 ssh.close()

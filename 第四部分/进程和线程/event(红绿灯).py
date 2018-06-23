@@ -20,7 +20,7 @@ def car(name):
             time.sleep(1)
         else: # 代表红灯
             print("[%s] stop running, waiting for light to green"% name)
-            event.wait()
+            event.wait() # 等待event.set() 变绿灯
             print("\033[32;1m green light is on [%s] start going\033[0m"% name)
 
 def lighter():
@@ -29,7 +29,7 @@ def lighter():
     while True:
         if count>5 and count<=10: #代表红灯
             print("\033[41;1m red light waiting\033[0m")
-            event.clear() # 变红灯，清空标志位
+            event.clear() # 变红灯，清空标志位，未设置标志位就代表红灯
             print(count)
         elif count  > 10:
             print("\033[42;1m green light going \033[0m")

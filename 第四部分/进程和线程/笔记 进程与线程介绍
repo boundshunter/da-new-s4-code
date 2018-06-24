@@ -1,5 +1,7 @@
 进程和线程的区别：
 1、线程共享内存空间，进程的内存是独立的
+进程和线程本身的快慢没有可比性
+能运行的是线程，进程包含线程
 
 2、同一个进程的线程之间可以直接交流，两个进程通信，必须使用一个中间代理来实现
 
@@ -22,4 +24,33 @@
 线程之间可以数据交流
 
 进程之间不可以数据交流，需要中间代理实现
+
+进程和线程本身的快慢没有可比性
+
+
+ 线程同时修改一块数据，必须枷锁，互斥锁 mutex
+ 递归锁，Rlock
+
+ def run(name):
+    print("aaa")
+
+t = threading.Thread(target=run,args=("name",)
+t.start()
+t.join() #等待线程结束
+
+queue # 实现解耦的工具
+    解耦 使程序实现松耦合
+    提高处理效率
+
+    FIFO = first in first out
+    LIFO = last in first out
+    解耦的实现实际就是使用生产者消费者模型
+
+event
+    红绿灯例子
+    event.wait()
+    event.set()
+    event.clean()
+    event.is_set() # 判断
+
 

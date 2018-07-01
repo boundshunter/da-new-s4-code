@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-__author__ = 'jfsu'
+# Author: su
 # 动态导入
 # 动态加载
 import importlib

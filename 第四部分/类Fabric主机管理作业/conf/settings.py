@@ -4,36 +4,18 @@ __author__ = 'jfsu'
 
 # group dict
 group1 = {
-    'h1':{
-        "ip":"10.0.1.188",
+    'h1': {
+        "ip": "10.0.1.190",
         "port": 22,
-        "user":"test1",
-        "password":"dongao.com123"
+        "user": "test1",
+        "password": "dongao.com123"
     },
-    'h3':{
-        "ip":"10.0.1.189",
+    'h3': {
+        "ip": "10.0.1.189",
         "port": 22,
-        "user":"test2",
-        "password":"dongao.com"
-    },
-    'h5':{
-        "ip":"10.0.1.187",
-        "port": 22,
-        "user":"root",
-        "password":"dongao@(*&IT"
-    },
-    'h7':{
-        "ip":"10.0.1.186",
-        "port": 22,
-        "user":"root",
-        "password":"dongao@(*&IT"
-    },
-    'h9':{
-        "ip":"10.0.1.222",
-        "port": 22,
-        "user":"root",
-        "password":"dongao@(*&IT"
-    },
+        "user": "test2",
+        "password": "abc,123,!"
+    }
 
 }
 
@@ -70,3 +52,4 @@ group2 = {
     },
 
 }
+

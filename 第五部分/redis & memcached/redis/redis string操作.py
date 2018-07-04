@@ -85,9 +85,8 @@ setrange(name, offset, value)
 # 参数：
     # offset，字符串的索引，字节（一个汉字三个字节）
     # value，要设置的值
-'''
-#重点：setbit
 
+#重点：setbit
 
 
 
@@ -153,3 +152,4 @@ incrbyfloat(self, name, amount=1.0)
 # 参数：
     # name,Redis的name
     # amount,自增数（浮点型）
+'''

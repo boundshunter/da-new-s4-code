@@ -1,0 +1,12 @@
+RabbitMQ
+
+1、平均分发
+2、perfetch = 1 不处理完就不接受新消息
+3、消息持久化涉及到队列持久化，消息持久化 durable 队列持久化 deliver_mode=2 消息持久化
+4、exchange:内部存在处理消息的规则，
+   exchange 实现广播模式 exchange,type=fanout
+            有选择的接收消息 exchange,type=direct
+            消息模糊过滤   exchange,type=topic
+   producer 消息发送给exchange,consumer1-n多个消费者，queue绑定到exchange
+
+5、RPC 双向的的 生产和消费

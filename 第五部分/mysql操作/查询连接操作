@@ -1,0 +1,84 @@
+两个表A,B
+数据为：
+mysql> select * from A;
++---+
+| a |
++---+
+| 1 |
+| 2 |
+| 3 |
+| 4 |
++---+
+4 rows in set (0.00 sec)
+
+mysql> select * from B;
++---+
+| b |
++---+
+| 3 |
+| 4 |
+| 5 |
+| 6 |
+| 7 |
++---+
+
+inner join 交集 （内连)
+select * from A inner join B on A.a=B.b
+mysql> select * from A inner join B on A.a=B.b
+    -> ;
++---+---+
+| a | b |
++---+---+
+| 3 | 3 |
+| 4 | 4 |
++---+---+
+第二种写法
+mysql>  select A.*,B.* from A,B where A.a=B.b
+    -> ;
++---+---+
+| a | b |
++---+---+
+| 3 | 3 |
+| 4 | 4 |
++---+---+
+
+left join
+right join 求差集
+mysql> select * from A left join B on A.a=B.b
+    -> ;
++---+------+
+| a | b    |
++---+------+
+| 3 |    3 |
+| 4 |    4 |
+| 1 | NULL |
+| 2 | NULL |
++---+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from A right join B on A.a=B.b;
++------+---+
+| a    | b |
++------+---+
+|    3 | 3 |
+|    4 | 4 |
+| NULL | 5 |
+| NULL | 6 |
+| NULL | 7 |
++------+---+
+5 rows in set (0.00 sec)
+
+full join mysql 不支持 full join
+mysql> select * from A left join B on A.a=B.b union select * from A right join B on A.a=B.b;
++------+------+
+| a    | b    |
++------+------+
+|    3 |    3 |
+|    4 |    4 |
+|    1 | NULL |
+|    2 | NULL |
+| NULL |    5 |
+| NULL |    6 |
+| NULL |    7 |
++------+------+
+

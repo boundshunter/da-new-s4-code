@@ -1,0 +1,6 @@
+begin
+insert,update,delete等
+
+rollback # 有问题就rollback
+
+commit #没问题就commit

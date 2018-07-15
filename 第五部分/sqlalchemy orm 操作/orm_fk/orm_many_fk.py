@@ -7,7 +7,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker,relationship # relationship 在内存中构建关联关系
 from sqlalchemy import Column,Integer,Index,String,DATE,PrimaryKeyConstraint,UniqueConstraint,ForeignKey,create_engine
 
-engin = sqlalchemy.create_engine("mysql+pymysql://root:gxw#mP8t@10.0.1.110/stumanage",encoding='utf-8',echo=True)
+# charset=utf8 加入此设置才能支持中文，encoding=utf-8 不管用
+engin = sqlalchemy.create_engine("mysql+pymysql://root:gxw#mP8t@10.0.1.110/stumanage?charset=utf8",encoding='utf-8',echo=True)
 Base = declarative_base()
 
 

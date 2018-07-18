@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--调用搜狗的搜索引擎搜索,搜狗默认参数 query，form默认method="GET"-->
+    <form action="http://www.sogou.com/web">
+        <input type="text" name="query" value="abc"/>
+        <input type="submit" value="搜索"/>
+    </form>
+    <form >
+       男： <input type="radio" name="gender" value="1"/>
+       女： <input type="radio" name="gender" value="2"/>
+       中： <input type="radio" name="gender" value="3"/>
+        <input type="submit" value="提交"/>
+        <!--提交后结果 gender=value中一个值-->
+        <!--http://localhost:63342/s4/%E7%AC%AC%E5%85%AD%E9%83%A8%E5%88%86/html%E5%AD%A6%E4%B9%A0/input%E7%8A%80%E5%88%A9.html?gender=3-->
+    </form>
+</body>
+</html>
+
+<!--input系列：-->
+    <!--input type="text" --name属性 value 默认值 -->
+    <!--input type="password" --name属性-->
+    <!--input type="submit" --提交按钮，表单，value代表按钮显示值-->
+    <!--input type="button" --按钮-->
+    <!--radio的作用，用于单选框，name值相同，才能实现只选择其中一个，value值区分到底选中哪个-->
+    <!--input type="radio" name="gender" value="1" -->
+    <!--input type="radio" name="gender" value="1" -->
+    <!--input type="radio" name="gender" value="1" -->

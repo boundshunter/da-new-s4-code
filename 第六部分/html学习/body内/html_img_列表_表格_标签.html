@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="http://www.dongao.com">
+    <img title="风景图" src="http://img.ivsky.com/img/tupian/pre/201802/24/shamo-006.jpg"
+         style="height: 200px;width: 100px" alt="沙漠">
+</a>
+<ul>
+    <li>abc</li>
+    <li>abc</li>
+    <li>abc</li>
+</ul>
+<ol>
+    <li>ddd</li>
+    <li>ddd</li>
+    <li>ddd</li>
+</ol>
+<dl>
+    <dt>tttt</dt>
+    <dd>ddd</dd>
+    <dd>ddd</dd>
+    <dd>ddd</dd>
+    <dt>tttt</dt>
+    <dd>ddd</dd>
+    <dd>ddd</dd>
+    <dd>ddd</dd>
+</dl>
+<table border="1">
+    <tr>
+        <td>第一行，第1列</td>
+        <td>第一行，第2列</td>
+        <td>第一行，第3列</td>
+        <td>第一行，第4列</td>
+    </tr>
+    <tr>
+        <td>第二行，第1列</td>
+        <td>第二行，第2列</td>
+        <td>第二行，第3列</td>
+        <td>第二行，第4列</td>
+    </tr>
+</table>
+<table border="2">
+    <!--第一行-->
+    <tr>
+        <td>主机名</td>
+        <td>IP</td>
+        <td>端口</td>
+        <td>备注</td>
+    </tr>
+    <tr>
+        <td>abc</td>
+        <td>1.2.3.4</td>
+        <td>21</td>
+        <td>
+            <a href="http://www.dongao.com">查看详情内容</a>
+        </td>
+    </tr>
+    <tr>
+        <td>ddd</td>
+        <td>3.4.5.6</td>
+        <td>8808</td>
+        <td>
+            <a href="http://sina.com.cn">跳转到新浪</a>
+        </td>
+    </tr>
+</table>
+<table border="1">
+    <thead>
+    <!--第一行-->
+    <tr>
+        <th>第1列</th>
+        <th>第2列</th>
+        <th>第3列</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <!--列的表示-->
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+    </tbody>
+</table>
+<table border="3">
+    <thead>
+        <tr>
+            <th>表头1</th>
+            <th>表头2</th>
+            <th>表头3</th>
+            <th>表头4</th>
+            <th>表头5</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <!-- 行内列合并用 colspan 第一行和第二行的的3、4、5列合并，需要删除第四列的表示-->
+            <td colspan="3" rowspan="2" bgcolor="#7fff00">4</td>
+            <!--<td>4</td>-->
+            <!--<td>5</td>-->
+        </tr>
+        <tr>
+            <!--2、3、4行的第一列合并，需要删除3,4行的第一列元素 rowapan的值代表合并的表格数-->
+            <td rowspan="2">1</td>
+            <td>2</td>
+            <!--<td>3</td>-->
+            <!--<td>4</td>-->
+            <!--<td>5</td>-->
+        </tr>
+        <tr>
+            <!--<td>1</td>-->
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>9</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
+
+<!--
+img标签-
+    -title 鼠标提示
+    -src 链接地址
+    -style 宽高
+    -alt 图片不存在默认显示提示
+->
+<!--
+列表标签  ul             ol                  dl
+         li              li                dt、dd
+        .开头的列表     数字开头的列表     dt内容为分类title，dd为分类中的内容
+-->
+<!--
+表格 标签
+    -tr 行
+    -td 列 表格的跳转，td中嵌套 a 标签实现页面跳转
+    table 标签，自己有内部的表头和表内容表示方法
+        -thead
+            -tr 内
+                - th 行
+        -tbody
+            -tr 内
+                - td 列
+        合并单元格： 合并的同时，删除相应位置的单元格
+            - colspan 行内合并 数字代表合并表格数目
+            - rowspan 列合并 数字代表合并表格数目
+-->

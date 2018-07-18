@@ -19,6 +19,24 @@
             <!--<input type="submit" value="提交"/>-->
             <p> 上传文件 </p>
             <input type="file" name="fname">
+            <p>下拉菜单</p>
+            <select name="city" size="5" multiple="multiple">
+                <option value="1">北京</option>
+                <option value="2">上海</option>
+                <option value="3">广州</option>
+                <option value="4">深圳</option>
+                <option value="5">浙江</option>
+            </select>
+            <select>
+                <optgroup label="北方">
+                    <option>吉林</option>
+                    <option>长春</option>
+                </optgroup>
+                <optgroup label="南方">
+                    <option>上海</option>
+                    <option>浙江</option>
+                </optgroup>
+            </select>
         </div>
         <textarea>默认值</textarea>
         <input type="reset" value="重置" />
@@ -39,5 +57,20 @@ input 系列：
     - input type="file" -依赖于form的一个属性 enctype="multipart/form-data"> 表示一点一点上传
     - input type="reset" - 重置 还原初始状态
     <textarea>默认值</textarea> - 多行文本输入和默认值设置
-
+    <select> 标签，字标签<option>
+        - <select name="city" size="5" multiple="multiple">
+        - name -属性
+        - size -下拉显示的个数
+        - multiple 支持多选
+     </select>
+     <select> 分组显示
+    <optgroup label="北方">
+        <option>吉林</option>
+        <option>长春</option>
+    </optgroup>
+    <optgroup label="南方">
+        <option>上海</option>
+        <option>浙江</option>
+    </optgroup>
+</select>
 -->

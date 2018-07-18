@@ -1,0 +1,77 @@
+编写 css 样式
+1、标签的style属性  style可以放在head和body中
+2、写在head里面，style标签中写样式
+    -style
+        -id 选择器  #i1
+        -class 选择器 .c1
+            <style>
+                #i1{
+                    background-color: brown;
+                    height: 40px;
+                }
+                .c1{
+                    background-color: chartreuse;
+                    height: 20px;
+                }
+            </style>
+            使用方法：
+            <标签 class="名称(c1)"></标签>
+
+        -标签选择器 div 自动给所有div标签设置此样式
+            div{
+                background-color: black;
+                color: white;
+            }
+        -层级选择器 (空格分隔，最后一个标签内为执行css的地方）
+            找到span下面的div标枪执行此样式
+            span div{
+                background-color: black;
+                color: white;
+            }
+            找到含有c1的class下的，含有c2的div下的a标签下的p标签，执行此样式配置
+            .c1 .c2 div a p{
+            }
+        -组合选择器 （逗号分隔，每个id或者class的名字，都匹配到执行结果)
+            #i1,#i2,#in{
+            }
+            .c1,.c2,.cn{
+            }
+        -属性选择器
+            首先匹配class属性为c1的标签，然后找寻其中含有自定义项n='alex'的标签，执行此css样式
+            .c1[n="alex"]{background-color: brown;height: 20px;color: chartreuse}
+            首先匹配input标签，type="text"的标签，执行此css样式
+            input[type="text"]{background-color: brown;height: 20px;color: chartreuse}
+2.1 css 样式可以写到单独文件中引用
+         head 中引入
+         <link rel="stylesheet" href="common.css"/>
+3、注释
+    /* 区域  */
+
+4、边框
+    <!--顶部实线-->
+    边框宽度、样式、颜色
+    <div style="border-top: 1px solid blue">边框</div>
+    <!--底部虚线-->
+    <div style="border-bottom: 1px dotted blue">边框</div>
+5、背景
+
+6、float
+    让标签变动地方，块级标签也可以堆叠,不能使用border，加边框之后没有float效果
+    <div style="height: 40px;width: 20%;background-color: brown;float: left;">1</div>
+    <div style="height: 40px;width: 80%;background-color: darkblue;float: left">2</div>
+7、display
+
+8、padding margin(0,auto)
+
+9、text-align
+
+10、height,width,line-height,color,font-size,font-weight
+    height  -   高度，像素
+    width   -   宽度，像素，百分比
+    text-align:center   -   水平居中
+    line-height -   垂直方向，根据标签高度
+    color   -   字体颜色
+    font-size   -   字体大小
+    font-weight -   字体加粗
+
+

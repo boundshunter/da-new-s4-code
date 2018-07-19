@@ -56,12 +56,27 @@
 5、背景
 
 6、float
-    让标签变动地方，块级标签也可以堆叠,不能使用border，加边框之后没有float效果
+    让标签变动地方，块级标签也可以堆叠,
     <div style="height: 40px;width: 20%;background-color: brown;float: left;">1</div>
-    <div style="height: 40px;width: 80%;background-color: darkblue;float: left">2</div>
+    管不住子div
+    最后加
+    <div style="clear: both"></div>
 7、display
-
+    display: none 让标签消失
+    display: inline
+    display: block
+    display: inline-block
+    特性：具有inline 默认有多少占多少
+         具有block 可以设置 高度 宽度  margin padding
+    内联标签边行内标签，行内标签边内联标签
+    <div style="background-color: red;display: inline">abc</div>
+    <span style="background-color: blue;display: block;">bcd</span>
+    行内标签 无法设置 高度 宽度 padding margin  (span 等）
+    块级标签 是可以的   （div等）
 8、padding margin(0,auto)
+    边距：
+    内边距：padding
+    外边距：margin
 
 9、text-align
 

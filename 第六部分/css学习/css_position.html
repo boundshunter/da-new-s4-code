@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .pg-header{
+            height:30px;
+            background-color: rebeccapurple;
+            color:  yellowgreen;
+            position: fixed;   /* position以下为固定头部作用 */
+            top:0;
+            left: 0;
+            right:0;
+        }
+        .pg-body{
+            height: 5000px;
+            background-color: #ddaddf;
+
+        }
+    </style>
+</head>
+<body>
+    <!--<div class="pg-header">头部</div>-->
+    <!--margin 为了外部div分开，在最上面时不被头部覆盖信息-->
+    <!--<div class="pg-body" style="margin: 48px auto">内容</div>-->
+    <div style="position: relative;border: 1px solid red;width: 500px;height: 300px;background-color:blueviolet;margin: 0 auto">
+        <div style="position: absolute;bottom:0;left:0;width: 30px;height: 30px;background-color: yellowgreen"></div>
+    </div>
+    <div style="position: relative;border: 1px solid red;width: 500px;height: 300px;background-color:green;margin: 0 auto">
+        <div style="position: absolute;bottom:0;right:0;width: 30px;height: 30px;background-color: gray"></div>
+    </div>
+    <div style="position: relative;border: 1px solid red;width: 500px;height: 300px;background-color:black;margin: 0 auto">
+        <div style="position: absolute;top:0;left:0;width: 30px;height: 30px;background-color: white"></div>
+    </div>
+
+</body>
+</html>
+
+
+<!--
+position
+    - fixed 固定页面某个位置，不随滑轮滚动
+    - absolute  起始出现在屏幕某个位置，随滑轮滚动
+        - relative +absolute 加起来使用应用场景  relative为父类标签，absolute依据relative所在的父类标签来定位
+    <div style="position: relative;border: 1px solid red;width: 500px;height: 300px;background-color:blueviolet;margin: 0 auto">
+        <div style="position: absolute;bottom:0;left:0;width: 30px;height: 30px;background-color: yellowgreen"></div>
+    </div>
+    <div style="position: relative;border: 1px solid red;width: 500px;height: 300px;background-color:green;margin: 0 auto">
+        <div style="position: absolute;bottom:0;right:0;width: 30px;height: 30px;background-color: gray"></div>
+    </div>
+    <div style="position: relative;border: 1px solid red;width: 500px;height: 300px;background-color:black;margin: 0 auto">
+        <div style="position: absolute;top:0;left:0;width: 30px;height: 30px;background-color: white"></div>
+    </div>
+-->

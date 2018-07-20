@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="www.dognao.com" method="GET">
+        <input type="text" name="a"/>
+        <input type="text" name="b"/>
+        <input type="submit"/>
+    </form>
+</body>
+</html>
+
+<!--请求连接www.dongao.com/?a="xxxx"&b="xxxxx"-->
+
+form 标签：
+    -action 连接地址
+    - POST/GET post 不拼接连接地址，隐藏在body里，GET连接地址显示参数值
+    - enctype="multipart/form-data 上传文件才可以，配合input标签，type="file"
+
+    for 标签里面嵌套a,div等标签，无法提交
+

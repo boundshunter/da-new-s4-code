@@ -75,8 +75,9 @@
     块级标签 是可以的   （div等）
 8、padding margin(0,auto)
     边距：
-    内边距：padding
-    外边距：margin
+    内边距：padding 自身发生变化
+    外边距：margin 外部发生变化
+    div 整个居中： margin 0 auto
 
 9、text-align
 
@@ -90,3 +91,12 @@
     font-weight -   字体加粗
 
 
+11、form 标签：
+    -action 连接地址
+    - POST/GET post 不拼接连接地址，隐藏在body里，GET连接地址显示参数值
+    - enctype="multipart/form-data 上传文件才可以，配合input标签，type="file"
+
+    for 标签里面嵌套a,div等标签，无法提交
+
+CSS补充
+    -position

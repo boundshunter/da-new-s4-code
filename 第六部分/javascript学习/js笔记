@@ -1,0 +1,17 @@
+
+Javascript:
+    独立的语言，浏览器具有js的解释器
+    JavaScript代码的存在形式：
+        - Head中
+            第一种写法，引入
+            <script src="common.js"></script>
+
+            第二中写法，声明为javascript，type="text/javascript" 不写也可以，默认就是它
+
+            <script type="text/javascript">
+                alert(123);
+            </script>
+            默认
+            <script>
+                alert(123);
+            </script>

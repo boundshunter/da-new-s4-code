@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .pg-header{
+            position: fixed;
+            top:0;
+            right:0;
+            left: 0;
+            background-color: #2459a2;
+            height: 48px;
+            line-height: 48px;;
+            /*margin: 0 auto;*/
+        }
+
+        .pg-body{
+            /*margin-top >48 px 为了不被header覆盖掉*/
+            margin-top: 50px ;
+        }
+
+        .pg-header .menu{
+            /*占满*/
+            display: inline-block;
+            /*padding 参数顺序 上右下左*/
+            padding: 0 20px 0 20px;
+        }
+
+        .w{
+            width: 980px;
+            margin:0 auto;
+
+        }
+
+        .pg-header .menu:hover{
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="pg-header">
+        <div class="w">
+            <a class="menu">全部</a>
+            <a class="menu">42区</a>
+            <a class="menu">段子</a>
+            <a class="menu">1024</a>
+        </div>
+
+    </div>
+    <div class="pg-body">内容</div>
+
+</body>
+</html>
+
+
+<!--hover 当鼠标移动到某个标签时，就给它应用hover对应的属性，比如菜单某个地方，鼠标挪过去，就会显示颜色加深或者变浅-->

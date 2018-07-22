@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="i1">i'm i1 ok？</div>
+    <a>abbbdddc</a>
+    <a>bbbbdddaccc</a>
+    <a>ccccddddda</a>
+</body>
+</html>
+<!--
+document.getElementById('i1')
+<div id=​"i1">​i'm i1 ok？​</div>​
+document.getElementById('i1').innerText
+"i'm i1 ok？"
+document.getElementById('i1').textContent
+"i'm i1 ok？"
+document.getElementById('i1').textContent = 'not ok'
+"not ok"
+document.getElementById('i1').innerText = 'not ok'
+"not ok"
+document.getElementById('i1').innerText = 'not 1ok'
+"not 1ok"
+document.getElementsByName('a')
+NodeList []
+document.getElementsByTagName('a')
+HTMLCollection(3) [a, a, a]0: aaccessKey: ""assignedSlot: nullattributeStyleMap: StylePropertyMap {size: 0}attributes: NamedNodeMap {length: 0}autocapitalize: ""baseURI: "http://localhost:63342/s4/%E7%AC%AC%E5%85%AD%E9%83%A8%E5%88%86/javascript%E5%AD%A6%E4%B9%A0/Dom%E5%AD%A6%E4%B9%A0.html?_ijt=3d1rfn563dj1a4s4n2g5btb69c"charset: ""childElementCount: 0childNodes: NodeList [text]children: HTMLCollection []classList: DOMTokenList [value: ""]className: ""clientHeight: 0clientLeft: 0clientTop: 0clientWidth: 0contentEditable: "inherit"coords: ""dataset: DOMStringMap {}dir: ""download: ""draggable: falsefirstChild: textfirstElementChild: nullhash: ""hidden: falsehost: ""hostname: ""href: ""hreflang: ""id: ""innerHTML: "abbbdddc"innerText: "abbbdddc"inputMode: ""isConnected: trueisContentEditable: falselang: ""lastChild: textlastElementChild: nulllocalName: "a"name: ""namespaceURI: "http://www.w3.org/1999/xhtml"nextElementSibling: anextSibling: textnodeName: "A"nodeType: 1nodeValue: nullnonce: ""offsetHeight: 22offsetLeft: 8offsetParent: bodyoffsetTop: 30offsetWidth: 74onabort: nullonauxclick: nullonbeforecopy: nullonbeforecut: nullonbeforepaste: nullonblur: nulloncancel: nulloncanplay: nulloncanplaythrough: nullonchange: nullonclick: nullonclose: nulloncontextmenu: nulloncopy: nulloncuechange: nulloncut: nullondblclick: nullondrag: nullondragend: nullondragenter: nullondragleave: nullondragover: nullondragstart: nullondrop: nullondurationchange: nullonemptied: nullonended: nullonerror: nullonfocus: nullongotpointercapture: nulloninput: nulloninvalid: nullonkeydown: nullonkeypress: nullonkeyup: nullonload: nullonloadeddata: nullonloadedmetadata: nullonloadstart: nullonlostpointercapture: nullonmousedown: nullonmouseenter: nullonmouseleave: nullonmousemove: nullonmouseout: nullonmouseover: nullonmouseup: nullonmousewheel: nullonpaste: nullonpause: nullonplay: nullonplaying: nullonpointercancel: nullonpointerdown: nullonpointerenter: nullonpointerleave: nullonpointermove: nullonpointerout: nullonpointerover: nullonpointerup: nullonprogress: nullonratechange: nullonreset: nullonresize: nullonscroll: nullonsearch: nullonseeked: nullonseeking: nullonselect: nullonselectstart: nullonstalled: nullonsubmit: nullonsuspend: nullontimeupdate: nullontoggle: nullonvolumechange: nullonwaiting: nullonwebkitfullscreenchange: nullonwebkitfullscreenerror: nullonwheel: nullorigin: ""outerHTML: "<a>abbbdddc</a>"outerText: "abbbdddc"ownerDocument: documentparentElement: bodyparentNode: bodypassword: ""pathname: ""ping: ""port: ""prefix: nullpreviousElementSibling: div#i1previousSibling: textprotocol: ":"referrerPolicy: ""rel: ""relList: DOMTokenList [value: ""]rev: ""scrollHeight: 0scrollLeft: 0scrollTop: 0scrollWidth: 0search: ""shadowRoot: nullshape: ""slot: ""spellcheck: truestyle: CSSStyleDeclaration {alignContent: "", alignItems: "", alignSelf: "", alignmentBaseline: "", all: "", …}tabIndex: 0tagName: "A"target: ""text: "abbbdddc"textContent: "abbbdddc"title: ""translate: truetype: ""username: ""__proto__: HTMLAnchorElement1: a2: alength: 3__proto__: HTMLCollection
+document.getElementsByTagName('a')[1]
+<a>​bbbbdddaccc​</a>​
+document.getElementsByTagName('a')[2]
+<a>​ccccddddda​</a>​
+document.getElementsByTagName('a')[3]
+undefined
+document.getElementsByTagName('a')[0]
+<a>​abbbdddc​</a>​
+document.getElementsByTagName('a').innerText
+undefined
+document.getElementsByTagName('a')[2].innerText
+"ccccddddda"
+document.getElementsByTagName('a')[2]
+<a>​ccccddddda​</a>​
+document.getElementsByTagName('a')[2].innerText='bbbbbbb'
+"bbbbbbb"
+tag = document.getElementsByTagName('a')
+HTMLCollection(3) [a, a, a]
+for (var i=0;i<tag.length;i++){tag[i]}
+<a>​bbbbbbb​</a>​
+for (var i=0;i<tag.length;i++){tag[i].innerText='666'}
+"666"
+for (var i=0;i<tag.length;i++){tag[i].innerText}
+"666"
+-->

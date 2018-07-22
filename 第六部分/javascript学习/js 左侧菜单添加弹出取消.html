@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*c1 显示覆盖图层，第二层*/
+        .c1{
+            background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.7;
+        }
+        /*中间弹窗，第三层*/
+        .c2{
+            height: 500px;
+            width: 400px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            background-color: white;
+            margin-top: -250px;
+            margin-left: -200px;
+        }
+        /*隐藏 显示，用于第二层和第三层*/
+        .hidden{
+            display: none;
+        }
+    </style>
+    <script>
+//        去掉隐藏层，显示第二层和第三层 用于添加点击动作
+        function addModel() {
+            document.getElementById('i1').classList.remove('hidden');
+            document.getElementById('i2').classList.remove('hidden');
+
+        }
+//        添加隐藏层，去掉第二层和第三层，用于取消点击动作
+        function removeModel() {
+            document.getElementById('i1').classList.add('hidden');
+            document.getElementById('i2').classList.add('hidden');
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <!--添加按钮，获取点击动作，弹出二三层-->
+        <input type="button" value="添加" onclick="addModel()">
+        <!--显示表格-->
+        <table>
+            <thead>
+                <th>IP地址</th>
+                <th>端口号</th>
+            </thead>
+            <tbody>
+                <td>192.168.0.1</td>
+                <td>8081</td>
+            </tbody>
+            <tbody>
+                <td>192.168.0.1</td>
+                <td>8081</td>
+            </tbody>
+        </table>
+    </div>
+    <!--第二层，默认隐藏，当获取添加动作是，添加动作通过id间接操作，将hidden删除，显示第二层-->
+    <div id='i1' class="c1 hidden"></div>
+    <!--第三层，默认隐藏，当获取添加动作时，添加动作通过id 将class中的hidden删除，显示第三层-->
+    <div id='i2' class="c2 hidden">
+        <p>
+        IP: <input type="text" />
+        </p>
+        <p>
+        PORT: <input type="text" />
+        </p>
+        <p>
+            <!--第三层弹出动作，当点击取消时获取点击动作，执行removeModel,添加hidden隐藏第三层-->
+            <input type="button" value="取消" onclick="removeModel()"/>
+            <input type="button" value="确定" />
+        </p>
+    </div>
+</body>
+</html>

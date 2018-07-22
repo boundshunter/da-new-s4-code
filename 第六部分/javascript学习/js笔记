@@ -120,3 +120,47 @@ for 循环
     调用
         函数名(1,2,3) # 形式参数
 
+
+Dom  Document
+    1、直接找
+        document.getElementById('i1')
+        document.getElementsTagName('a')
+        document.getElementsTagName('c1')
+    2、间接找
+        tag = document.getElementById('i1')
+
+        parentNode          // 父节点
+        childNodes          // 所有子节点
+        firstChild          // 第一个子节点
+        lastChild           // 最后一个子节点
+        nextSibling         // 下一个兄弟节点
+        previousSibling     // 上一个兄弟节点
+
+        parentElement           // 父节点标签元素
+        children                // 所有子标签
+        firstElementChild       // 第一个子标签元素
+        lastElementChild        // 最后一个子标签元素
+        nextElementtSibling     // 下一个兄弟标签元素
+        previousElementSibling  // 上一个兄弟标签元素
+
+
+    操作标签
+        a. innerText (textContent)
+            获取标签中文本呢哦让
+                标签.innerText
+
+            对标签文本内容重新赋值
+                标签.innerText='新值'
+
+        b. className
+           tag.className   直接整体做操作
+
+           tag.classList.add('样式名c几') 添加制定的样式
+           tag.classList.remove('样式名'） 删除制定样式
+
+        c. checkbox
+                checkbox对象.checked 获得值
+                checkbox.checked=true 设置值为true 选择
+                checkbox.checked=false 设置值为false 不选择
+
+

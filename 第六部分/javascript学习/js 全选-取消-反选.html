@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*c1 显示覆盖图层，第二层*/
+        .c1{
+            background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.7;
+        }
+        /*中间弹窗，第三层*/
+        .c2{
+            height: 500px;
+            width: 400px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            background-color: white;
+            margin-top: -250px;
+            margin-left: -200px;
+        }
+        /*隐藏 显示，用于第二层和第三层*/
+        .hidden{
+            display: none;
+        }
+    </style>
+    <script>
+//        去掉隐藏层，显示第二层和第三层 用于添加点击动作
+        function addModel() {
+            document.getElementById('i1').classList.remove('hidden');
+            document.getElementById('i2').classList.remove('hidden');
+
+        }
+//        添加隐藏层，去掉第二层和第三层，用于取消点击动作
+        function removeModel() {
+            document.getElementById('i1').classList.add('hidden');
+            document.getElementById('i2').classList.add('hidden');
+        }
+        function ChooseAll() {
+//            定位tbody
+            var tbody = document.getElementById('tb');
+//            拿到tr下所有的孩子
+            var tr_list = tbody.children;
+            for (i = 0; i < tr_list.length; i++) {
+                var curr_tr = tr_list[i];
+//                拿到第一个tr的孩子下第一个孩子是td，td下第一个孩子是input，需要拿2次children[0]
+                var checkbox = curr_tr.children[0].children[0];
+//                checked = true 选择   = false 不选择
+                checkbox.checked = true
+
+            }
+
+        }
+        function CancelAll() {
+//            定位tbody
+            var tbody = document.getElementById('tb');
+//            拿到tr下所有的孩子
+            var tr_list = tbody.children;
+            for (i = 0; i < tr_list.length; i++) {
+                var curr_tr = tr_list[i];
+//                拿到第一个tr的孩子下第一个孩子是td，td下第一个孩子是input，需要拿2次children[0]
+                var checkbox = curr_tr.children[0].children[0];
+//                checked = true 选择   = false 不选择
+                checkbox.checked = false;
+
+            }
+
+        }
+        function ReverseAll() {
+//            定位tbody
+            var tbody = document.getElementById('tb');
+//            拿到tr下所有的孩子
+            var tr_list = tbody.children;
+            for (i = 0; i < tr_list.length; i++) {
+                var curr_tr = tr_list[i];
+//                拿到第一个tr的孩子下第一个孩子是td，td下第一个孩子是input，需要拿2次children[0]
+                var checkbox = curr_tr.children[0].children[0];
+
+//                反选判断当前的状态，当前状态为false就变为true，反之亦然
+                if(checkbox.checked)
+                {
+                    checkbox.checked=false;
+                }
+                else
+                    {
+                    checkbox.checked=true;
+                }
+
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+    <div>
+        <!--添加按钮，获取点击动作，弹出二三层-->
+        <input type="button" value="添加" onclick="addModel()">
+        <p>
+            <input  type="button" value="全选" onclick="ChooseAll()">
+            <input  type="button" value="取消" onclick="CancelAll()">
+            <input  type="button" value="反选" onclick="ReverseAll()">
+        </p>
+        <!--显示表格-->
+        <table>
+            <thead>
+                <th>选择</th>
+                <th>IP地址</th>
+                <th>端口号</th>
+            </thead>
+            <tbody id="tb">
+                <tr>
+                    <td><input id="text" type="checkbox"/></td>
+                    <td>192.168.0.1</td>
+                    <td>8081</td>
+                </tr>
+                <tr>
+                    <td><input id="text" type="checkbox"/></td>
+                    <td>192.168.0.2</td>
+                    <td>8082</td>
+                </tr>
+                <tr>
+                    <td><input id="text" type="checkbox"/></td>
+                    <td>192.168.0.2</td>
+                    <td>8083</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--第二层，默认隐藏，当获取添加动作是，添加动作通过id间接操作，将hidden删除，显示第二层-->
+    <div id='i1' class="c1 hidden"></div>
+    <!--第三层，默认隐藏，当获取添加动作时，添加动作通过id 将class中的hidden删除，显示第三层-->
+    <div id='i2' class="c2 hidden">
+        <p>
+        IP: <input type="text" />
+        </p>
+        <p>
+        PORT: <input type="text" />
+        </p>
+        <p>
+            <!--第三层弹出动作，当点击取消时获取点击动作，执行removeModel,添加hidden隐藏第三层-->
+            <input type="button" value="取消" onclick="removeModel()"/>
+            <input type="button" value="确定" />
+        </p>
+    </div>
+</body>
+</html>

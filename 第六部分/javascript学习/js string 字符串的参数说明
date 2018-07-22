@@ -1,0 +1,23 @@
+
+obj.length                           长度
+
+obj.trim()                           移除空白
+obj.trimLeft()
+obj.trimRight)
+obj.charAt(n)                        返回字符串中的第n个字符
+obj.concat(value, ...)               拼接
+obj.indexOf(substring,start)         子序列位置
+obj.lastIndexOf(substring,start)     子序列位置
+obj.substring(from, to)              根据索引获取子序列
+obj.slice(start, end)                切片
+obj.toLowerCase()                    大写
+obj.toUpperCase()                    小写
+obj.split(delimiter, limit)          分割
+obj.search(regexp)                   从头开始匹配，返回匹配成功的第一个位置(g无效)
+obj.match(regexp)                    全局搜索，如果正则中有g表示找到全部，否则只找到第一个。
+obj.replace(regexp, replacement)     替换，正则中有g则替换所有，否则只替换第一个匹配项，
+                                     $数字：匹配的第n个组内容；
+                                     $&：当前匹配的内容；
+                                     $`：位于匹配子串左侧的文本；
+                                     $'：位于匹配子串右侧的文本
+                                     $$：直接量$符号

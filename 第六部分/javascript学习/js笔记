@@ -15,3 +15,108 @@ Javascript:
             <script>
                 alert(123);
             </script>
+
+
+    变量：
+        python
+            name = ’alex'
+
+        javascript
+            name = 'alex'     # 默认为全局变量
+            var name = 'eric' # 局部变量
+            javascript 默认都写 var name ，如果真需要全局变量，在改，默认就都写var
+
+            function func(){
+
+                var age = '18'  # 局部变量
+
+                gender = 'M' # 全局变量
+            }
+
+        数字转换
+            age = "18"
+            i = parseInt(age) # 字符串转换成数字
+                parseFloat(age) # 字符串转换成浮点数
+
+        写javascript代码
+                    1、可以在文件中
+                    2、临时的可以在浏览器的终端 console中写。
+
+
+基本数据类型
+    数字
+        a=18
+    字符串
+        a='alex'
+        a.charAt(索引位置)
+        a.substring(起始位置，结束位置)
+        a.length(obj) 字符串长度
+
+
+    定时器
+        setInterval("f1()",2000) # 参数：执行的代码，间隔时间
+        console.log(l) 在console窗口打印
+
+
+    列表数组
+    obj.length          数组的大小
+
+    obj.push(ele)       尾部追加元素
+    obj.pop()           尾部获取一个元素
+    obj.unshift(ele)    头部插入元素
+    obj.shift()         头部移除元素
+    可以进行获取，删除，修改值操作
+    obj.splice(start, deleteCount, value, ...)  插入、删除或替换数组的元素
+                        obj.splice(n,0,val) 指定位置插入元素
+                        obj.splice(n,1,val) 指定位置替换元素
+                        obj.splice(n,1)     指定位置删除元素
+    obj.slice( )        切片
+    obj.reverse( )      反转
+    obj.join(sep)       将数组元素连接起来以构建一个字符串
+    obj.concat(val,..)  连接数组
+    obj.sort( )         对数组元素进行排序
+
+
+
+for 循环
+    1、第一种循环，循环的是列表的索引，字典的key
+        a = [11,33,22,44,55,66]
+        for (item in a){
+        console.log(item);
+        }
+        a = {'k1':'v1','k2':'v2'}
+        for (item in a){
+        console.log(item);
+        }
+        列表，循环的是索引值
+        字典，循环的是k值
+        列表和字典 获取值，a[item]
+        for (item in a){
+        console.log(a[item]);
+        }
+    2、第二种循环 ，此种循环不可应用于字典，因为字典是无序的
+        for (var i=0;i<10;i++){
+        }
+        循环数组
+        a = [11,33,22,44,55,66]
+        for (var i=0;i<a.length;i++){console.log(a[i])}
+
+条件 if
+    if(条件){
+    }else if(条件){
+    }else{
+    }
+
+    if(1==1) 判断值相等
+    if(1!=1)
+    if(1===1) 判断值和类型都相等
+    ==   值相等
+    ===  值和类型都相等
+    &&   and
+    ||   or
+
+函数
+    function 函数名(a,bc,c){}
+    调用
+        函数名(1,2,3) # 形式参数
+

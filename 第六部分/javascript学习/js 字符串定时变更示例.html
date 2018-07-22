@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="i1">欢迎大哥莅临我部指导</div>
+    <script>
+        function jf(){
+//            获取id为 i1 的标签
+            var tag = document.getElementById('i1');
+//            获取标签内容
+            var content = tag.textContent;
+//            获取内容中0位置的字符
+            var a1 = content.charAt(0);
+//            获取内容中1位置到最后的字符
+            var l = content.substring(1,content.length);
+//            拼接字符串为新的值 new_content
+            var new_content = l + a1;
+//            将tag的内部值赋值为新的内容
+            tag.innerText = new_content;
+        }
+//        定时器，每500ms 执行一次 jf() 函数
+        setInterval('jf()',500)
+    </script>
+</body>
+</html>

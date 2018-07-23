@@ -149,3 +149,14 @@ background
 
     background-position-x: npx # 像素值 配合div中的height，width定位到具体的图形，通过x,y来挪动位置定位
     background-position-y: npx # 需要配合 background-image来使用
+
+
+position
+    -fixed      永远固定在指定的位置
+    -relative   单独出现无意义
+    -obsolute   单独使用时，一次性的固定在制定的位置，随滑轮滚动而动
+
+
+overflow 页面滚动条，overflow:auto
+
+min-width 最小宽度

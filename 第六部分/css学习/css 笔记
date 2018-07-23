@@ -79,13 +79,13 @@
     外边距：margin 外部发生变化
     div 整个居中： margin 0 auto
 
-9、text-align
+9、text-align 文本居中，center
 
 10、height,width,line-height,color,font-size,font-weight
     height  -   高度，像素
     width   -   宽度，像素，百分比
     text-align:center   -   水平居中
-    line-height -   垂直方向，根据标签高度
+    line-height -   垂直方向，根据标签高度取中间位置
     color   -   字体颜色
     font-size   -   字体大小
     font-weight -   字体加粗
@@ -112,6 +112,7 @@ CSS补充
             <div style="position: absolute;top:0;left:0;width: 30px;height: 30px;background-color: white"></div>
         </div>
 
+z-index 层级顺序，权重高，靠前
 overflow
     -hidden 超过指定宽高的图片，自动隐藏，只显示指定宽高部分
     -auto 只显示指定宽高部分，剩下的需要使用滚动条查看

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .pg-header{
+            background-color: blueviolet;
+            height: 38px;
+            line-height: 38px;
+            position: fixed;
+            z-index: 5;
+            top: 0;
+            right: 0;
+            left: 0;
+        }
+        .pg-body{
+            margin-top: 45px;;
+        }
+        .body_menu{
+            background-color: lightcyan;
+            width: 200px;
+            /*height: 500px;*/
+            float: left;
+        }
+        .body_content{
+            background-color: aqua;
+            width: 1000px;
+            height: 1500px;
+            float: left;
+            padding-left: 40px;
+            padding-top:40px;
+            padding-right: 40px;
+            margin-left: 50px;
+            display: inline-block;
+        }
+        .dv1{
+            width: 680px;
+            /*标签内容根据宽度居中*/
+            margin: 0 auto;
+        }
+        .top_menu{
+            height: 38px;;
+            padding: 0 20px;
+            /*使用该样式的标签内容，占满*/
+            display: inline-block;
+        }
+        /*hover 用于获取鼠标指向时显示变色*/
+        .pg-header .top_menu:hover{
+            background-color: #2459a2;
+        }
+        .left_menu{
+            background-color: lightcyan;
+            font-size: larger;
+            font-weight: 100;
+            padding-left: 10px;
+            /*padding-top: 20px;*/
+            margin-left: 10px;
+        }
+        .left_content{
+            /*background-color: #ddaddf;*/
+            /*font-size: larger;*/
+            /*font-weight: 500;*/
+            padding-left: 10px;
+            /*padding-top: 20px;*/
+            margin-left: 20px;
+        }
+        .hide{
+            display: none;
+        }
+        .th{
+            padding: 0 30px;
+        }
+        /*添加，弹窗二层覆盖，三层修改*/\
+        /*透明覆盖第二层*/
+        /*.layer_c1{*/
+            /*position: fixed;*/
+            /*background-color: black;*/
+            /*!*透明度*!*/
+            /*opacity: 0.9;*/
+            /*!*上下左右边距 0 为全覆盖*!*/
+            /*top:0;*/
+            /*left:0;*/
+            /*right:0;*/
+            /*bottom:0;*/
+            /*z-index: 9;*/
+        /*}*/
+        .c1{
+            position:fixed;
+            background-color: black;
+            opacity:0.6;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .layer_pop{
+            height: 500px;
+            width: 400px;
+            position: fixed;
+            left: 50%;
+            top:50%;
+            background-color: cyan;
+            margin-top: -250px;
+            margin-left: -200px;
+            z-index: 10;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<!--body 中 margin 0 auto，去掉边框两头空白，顶格-->
+<!--<body style="margin: 0 auto;">-->
+<body>
+    <!--顶部菜单-->
+    <div class="pg-header">
+        <div class="dv1">
+            <a class="top_menu">全部</a>
+            <a class="top_menu">42区</a>
+            <a class="top_menu">段子</a>
+            <a class="top_menu">1024</a>
+        </div>
+    </div>
+
+    <div class="pg-body">
+        <div class="body_menu">
+        <!--左侧菜单-->
+            <div class="item">
+                <!--菜单、内容-->
+                <div id='i1' class="left_menu" onclick="ChangeMenu('i1')">水果</div>
+                <div class="left_content">
+                    <div>香蕉</div>
+                    <div>苹果</div>
+                    <div>西瓜</div>
+                </div>
+            </div>
+            <div class="item">
+                <div id='i2' class="left_menu" onclick="ChangeMenu('i2')">化妆品</div>
+                <div class="left_content hide">
+                    <div>妮维雅</div>
+                    <div>玉兰油</div>
+                    <div>高夫</div>
+                </div>
+            </div>
+            <div class="item">
+                <div id='i3' class="left_menu" onclick="ChangeMenu('i3')">电子产品</div>
+                <div class="left_content hide">
+                    <div>笔记本</div>
+                    <div>手机</div>
+                    <div>pad</div>
+                </div>
+            </div>
+        </div>
+
+        <!--右侧表格内容-->
+        <div class="body_content">
+
+            <p style="margin-left: 36px; ">
+                <input  type="button" value="全选" onclick="ChooseAll()">
+                <input  type="button" value="取消" onclick="CancelAll()">
+                <input  type="button" value="反选" onclick="ReverseAll()">
+                <!--添加按钮，获取点击动作，弹出二三层-->
+                <input type="button" value="添加" onclick="AddAction()">
+            </p>
+            <!--表格要使用table-->
+            <table border="1" style="margin: 10px auto">
+                <!--表头要用thead-->
+                <thead>
+                    <tr>
+                        <th class="th">修改</th>
+                        <th class="th">实体机IP</th>
+                        <th class="th">虚拟机IP</th>
+                        <th class="th">端口</th>
+                        <th class="th">cpu个数</th>
+                        <th class="th">硬盘大小</th>
+                        <th class="th">内存大小</th>
+                        <th class="th">应用</th>
+                    </tr>
+                </thead>
+                <!--内容要用tbody-->
+                <tbody id="tbd">
+                    <tr>
+                        <td style="border: 0"><input type="checkbox"/></td>
+                        <td rowspan="2" bgcolor="aqua">10.0.0.201</td>
+                        <td>10.0.0.15</td>
+                        <td>8080</td>
+                        <td>32</td>
+                        <td>800G</td>
+                        <td>24G</td>
+                        <!--最后一列第一个元素，最后一列第二个元素合并，同时去掉被合并项占用的表格-->
+                        <td rowspan="2" bgcolor="#deb887">tomcat</td>
+
+                    </tr>
+                    <tr>
+                        <td style="border: 0"><input type="checkbox"/></td>
+                        <!--<td>10.0.0.201</td>-->
+                        <td>10.0.0.16</td>
+                        <td>8081</td>
+                        <td>24</td>
+                        <td>600G</td>
+                        <td>12G</td>
+                        <!--<td>tomcat</td>-->
+                    </tr>
+                    <tr>
+                        <td style="border: 0"><input type="checkbox"/></td>
+                        <td rowspan="2" bgcolor="aqua">10.0.0.202</td>
+                        <td>10.0.0.17</td>
+                        <td>8080</td>
+                        <td>12</td>
+                        <td>1200G</td>
+                        <td>8G</td>
+                        <td rowspan="2" bgcolor="#deb887">nginx</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 0"><input type="checkbox"/></td>
+                        <!--<td>10.0.0.202</td>-->
+                        <td>10.0.0.18</td>
+                        <td>8080</td>
+                        <td>16</td>
+                        <td>700G</td>
+                        <td>64G</td>
+                        <!--<td>nginx</td>-->
+                    </tr>
+                    <tr>
+                        <td style="border: 0"><input type="checkbox"/></td>
+                        <td rowspan="2" bgcolor="aqua">10.0.0.203</td>
+                        <td>10.0.0.19</td>
+                        <td>8080</td>
+                        <td>48</td>
+                        <td>400G</td>
+                        <td>128G</td>
+                        <td>mysql</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 0"><input type="checkbox"/></td>
+                        <!--<td>10.0.0.203</td>-->
+                        <td>10.0.0.20</td>
+                        <td>40</td>
+                        <td>32</td>
+                        <td>500G</td>
+                        <td>16G</td>
+                        <td>zookeeper</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--添加动作的第二层透明覆盖-->
+    <div id="l1" class="hide" style="position:fixed;background-color: black;opacity:0.6;top: 0;left: 0;right: 0;bottom: 0;"></div>
+
+    <!--添加第三层弹窗，修改框-->
+    <div id="l2" class="hide" style="background-color: white;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 400px;
+    position:fixed;
+    margin-top: -250px;
+    margin-left: -200px;
+    ">
+        <div style="height:250px;width: 350px;text-align: right">
+            <div style="margin-top:10%;margin-left: 20%;">
+                <p>实体机IP:<input type="text"/></p>
+                <p>虚拟机IP:<input type="text"/></p>
+                <p>端口:<input type="text"/></p>
+                <p>硬盘大小:<input type="text"/></p>
+                <p>内存大小:<input type="text"/></p>
+                <p>应用:<input type="text"/></p>
+            </div>
+        </div>
+        <div style="margin-left: 200px">
+            <input type="button" value="提交"/>
+            <input type="button" value="取消" onclick="CancelAction()">
+
+        </div>
+    </div>
+
+
+    <script>
+        function ChangeMenu(nid){
+//            根据id获取当前节点的div
+            var current_menu = document.getElementById(nid);
+//            通过当前节点的div，找到上一次的上一级，通过children获取子div列表
+            var item_list = current_menu.parentElement.parentElement.children;
+//            循环div列表索引，循环通过i获取div
+            for(i=0;i<item_list.length;i++){
+                var curr_item = item_list[i];
+//                将获取的div的第一个孩子，也就是hide所在的div,添加hide,默认让所有的内容隐藏
+                curr_item.children[1].classList.add('hide');
+            }
+//            在通过当前div获取下一个div,移除hide，只显示当前点击的菜单内容
+            current_menu.nextElementSibling.classList.remove('hide');
+        }
+//        选中全部
+        function ChooseAll(){
+//            根据id=tbd获取tbody的div
+            var tbody = document.getElementById('tbd');
+//            获取tbody所有的children列表
+            var tr_list = tbody.children;
+//            循环列表
+            for(i=0;i<tr_list.length;i++){
+//                获取当前标签
+                var current_tr = tr_list[i];
+//                当前标签tr第一层children为td，第二层children为input
+                var checkbox = current_tr.children[0].children[0];
+//                checked = true(选中)/false(不选中)
+                checkbox.checked = true
+            }
+        }
+//        取消选中
+        function CancelAll(){
+            var tbody = document.getElementById('tbd');
+            var tr_list = tbody.children;
+            for(i=0;i<tr_list.length;i++){
+                var current_tr = tr_list[i];
+                var checkbox = current_tr.children[0].children[0];
+//                取消只需要把所有checkbox设置为false
+                checkbox.checked = false
+            }
+        }
+//        反选
+        function ReverseAll(){
+            var tbody = document.getElementById('tbd');
+            var tr_list = tbody.children;
+            for(i=0;i<tr_list.length;i++){
+                var current_tr = tr_list[i];
+                var checkbox = current_tr.children[0].children[0];
+//                反选 判断当前选中状态，相反设置即可
+                if(checkbox.checked){
+                    checkbox.checked = false
+                }else{
+                    checkbox.checked = true
+                }
+            }
+        }
+
+////        添加动作
+        function AddAction(){
+            document.getElementById('l1').classList.remove('hide');
+            document.getElementById('l2').classList.remove('hide');
+        }
+//        添加后的取消动作
+        function CancelAction(){
+            document.getElementById('l1').classList.add('hide');
+            document.getElementById('l2').classList.add('hide');
+        }
+    </script>
+</body>
+</html>

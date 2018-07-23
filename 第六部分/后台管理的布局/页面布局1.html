@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .pg-header{
+            background-color: #2459a2;
+            height: 48px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+        .body{
+            margin: 0;
+        }
+        .left{
+            float: left;
+        }
+        .right{
+            float: right;
+        }
+        .pg-content{
+
+        }
+        .pg-content .menu{
+            background-color: linen;
+            width: 200px;
+            position: absolute;
+            top: 48px;
+            left: 0;
+            bottom: 0;
+            min-width: 100px;
+            /*overflow: auto;*/
+        }
+        .pg-content .content{
+            background-color: #dddddd;
+            position: absolute;
+            top: 48px;
+            right: 0;
+            bottom: 0;
+            left: 210px;
+            /*min-width 配合overflow的 auto 当页面宽度小于min-width时，左右就出现滚动条*/
+            overflow: auto;
+            min-width: 800px;
+        }
+    </style>
+</head>
+<body class="body">
+    <div class="pg-header"></div>
+    <div class="pg-content">
+        <div class="menu left"></div>
+        <div class="content left">
+            <p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p>
+            <p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p>
+            <p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p>
+            <p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p>
+            <p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p>
+            <p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p>
+            <p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p>
+            <p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p>
+            <p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p>
+            <p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p><p>aaaa</p>
+        </div>
+    </div>
+    <div class="pg-footer"></div>
+
+</body>
+</html>

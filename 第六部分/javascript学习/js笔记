@@ -164,3 +164,35 @@ Dom  Document
                 checkbox.checked=false 设置值为false 不选择
 
 
+
+函数
+    普通函数
+        function func(arg){}
+        func(1)
+    匿名函数
+        setinterval('函数'，间隔时间毫秒数）
+    自执行函数：
+        arg 形参   最外层的 (1) 实参
+        (function func(arg){
+            console.log('111');
+        })(1)
+
+        自执行函数的出现，是为了防止多种外部函数重名，让函数自动执行结果，而不是需要手动去执行
+        自执行，相当于，定义一个函数，然后执行这个函数
+
+序列化
+    JSON.stringify(obj)    将对象类型转换为字符串  序列化
+    JSON.parse(str)        将字符串转换为对象类型  反序列化
+
+转义
+    客户端（cookie)   -->    服务器端
+    将数据经过转以后，保存在cookie
+
+eval
+    python:
+        val = eval(算数表达式) 默认有返回值  eval 不可以执行代码
+        exec(执行代码) 没有返回值，但是可以执行
+
+    JavaScript 中
+        eval既可以执行算数表达式，又可以执行代码，还有返回值
+

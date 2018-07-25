@@ -311,8 +311,18 @@ DOM
 
 
         ------------------------------------------------
-        <input type="button" onclick="addEle1()" value="+"/>
-        <input type="button" onclick="addEle2()" value="++"/>
-        <div id="i1">
-            <input type="text" />
-        </div>
+        创建标签方式
+            字符串创建
+                tag = "<p><input type='text'/></p>";
+                document.getElementById('i1').insertAdjacentHTML('beforeEnd',tag)
+
+            对象创建
+                tag = document.createElement('input');
+                tag.setAttribute('type','text');
+                tag.style.fontSize = '16px';
+                标签嵌套
+                var p = document.createElement('p');
+                input标签放入p标签中
+                p.appendChild(tag);
+                最后将标签添加到id为 i1的标签中
+                document.getElementById('i1').appendChild(p);

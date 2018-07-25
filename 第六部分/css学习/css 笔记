@@ -47,7 +47,8 @@
 3、注释
     /* 区域  */
 
-4、边框
+4、边框  border
+                border-radius:50% 边框变圆，最圆的值为50%，也可以设置像素，从方框一直到圆变化
     <!--顶部实线-->
     边框宽度、样式、颜色
     <div style="border-top: 1px solid blue">边框</div>

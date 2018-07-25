@@ -196,3 +196,123 @@ eval
     JavaScript 中
         eval既可以执行算数表达式，又可以执行代码，还有返回值
 
+时间
+    Date 相当于一个类
+    var d = new Date() 通过new 一个 Date() 类，相当于创建一个对象
+    d就是时间对象，d就封装了当前时间
+    d.getxxxx 获取
+    d.setxxxx 设置
+
+
+
+******************************
+作用域： 重中之重！！！！！！！！！！！！！！！！
+
+JavarScript 中
+    1、以函数为作用域，和python相同，除let
+    2、函数的作用域，在函数为被调用之前已经创建
+    3、函数的作用域存在作用域链，并且也是在被调用之前创建（函数里面套函数=作用域套作用域，我们称之为作用域链）
+        xo='alex'
+        function func(){
+            var xo='eric'
+            func inner(){
+
+                console.log(xo)
+            }
+        }
+        var ret = func()
+        ret
+        作用域调用顺序，用内到外
+    4、函数内局部变量提前声明
+    function func(){
+        var xxoo='alex';
+    }
+    func()
+    //程序直接报错
+
+    函数内局部变量声明 意思是，我会提前声明一个 var xxoo，但是这时候并未赋值，此时xxoo为undefined
+    函数内顺序执行，当执行到console.log时，此时并未赋值，所以返回undefined,
+    然后在执行var xxoo='alex'给xxoo赋值
+    function func(){
+        console.log(xxoo);
+        var xxoo='alex';
+    }
+    func()
+    // 所以输出结果undefined
+
+面向对象
+    function Foo(n){
+        this.name=n;
+    }
+    var obj = new Foo('abc')
+    obj.name //返回 abc
+    this 相当于self
+    生成对象，使用new 函数名(参数)
+
+    原型：
+        function Foo(n){
+            this.name=n;
+        }
+        # Foo 原型
+        Foo.prototype = {
+            'sayName':function(){
+                console.log(this.name)
+            }
+        }
+
+        obj1 = new Foo('aaa')
+        obj2 = new F00('bbb')
+
+        obj1 = new Foo('aaa')
+        obj1.sayName
+
+        原型的作用是防止重复调用时在内存中重复申请内存空间造成浪费
+                            解析：
+                            1,生成obj1对象，传入参数 aaa，此时,obj1只有一个属性obj1.name
+                            2,当调用obj1.sayName时，先去Foo.prototype中，找是否有sayName属性，如果有
+                                  则执行他下面的函数，console.log(obj1.name)
+
+
+DOM
+    document object model
+
+    直接获取
+        document.getElementById(xxx)
+    间接获取
+        innerText 只获取当前文本，如果里面有套用标签，也不现实标签，只显示文本内容
+        innerHtml 获取全部内容，包括获取内部标签和文本
+        value
+            input  -value 获取当前标签中的值
+            select 获取选中的value值（selectedIndex)
+            textarea
+
+    操作
+        className
+        classList
+            classList.add
+            classList.remove
+
+
+        <div id='i1' style='font-size:16px'>
+        obj = document.getElementById('i1')
+        obj.style.fontSize='16px'  就相当于style='font-size:16px' ，font-size 中间的-去掉，size第一个字母边大写，一般都是这个规则
+        obj.style.color = 'lightgray'
+        obj.backgroundColor = 'black'
+
+        属性操作
+        attributes 获取所有属性
+        setAttribute   设置属性
+        removeAttribute   移除属性
+
+        obj.setAttribute('value','alex') 相当于
+            <div id='i1' style='font-size:16px' value='alex'>
+
+         obj.removeAttribute('value') 删除value属性
+
+
+        ------------------------------------------------
+        <input type="button" onclick="addEle1()" value="+"/>
+        <input type="button" onclick="addEle2()" value="++"/>
+        <div id="i1">
+            <input type="text" />
+        </div>

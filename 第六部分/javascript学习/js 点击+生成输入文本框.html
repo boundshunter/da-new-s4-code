@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <input type="button" onclick="addEle1()" value="+"/>
+    <input type="button" onclick="addEle2()" value="++"/>
+    <div id="i1">
+        <input type="text" />
+    </div>
+    <script>
+//        创建标签方法1 简单创建不复杂标签
+        function addEle1(){
+//            创建一个标签 字符串创建方式
+            var tag = "<p><input type='text'/></p>";
+//            将标签添加到i1里面
+            document.getElementById('i1').insertAdjacentHTML('beforeEnd',tag)
+        }
+//        增加标签方式2，可以方便增加和修改标签内的属性
+        function addEle2(){
+//            创建input标签，对象创建方式
+            var tag = document.createElement('input');
+//            设置input标签属性
+            tag.setAttribute('type','text');
+//            标签增加style属性
+            tag.style.fontSize = '16px';
+            tag.style.color = 'red';
+//            创建p标签
+            var p = document.createElement('p');
+//            将input标签放入p标签内
+            p.appendChild(tag);
+            document.getElementById('i1').appendChild(p);
+        }
+    </script>
+</body>
+</html>

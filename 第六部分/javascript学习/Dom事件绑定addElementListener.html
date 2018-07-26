@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #main{
+            background-color: black;
+            width: 400px;
+            height: 300px;
+        }
+        #content{
+            background-color: #2459a2;
+            width: 200px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="content"></div>
+    </div>
+    <script>
+        var myMain = document.getElementById('main');
+        var myContent = document.getElementById('content');
+        myMain.addEventListener('click',function(){console.log('main')},false)
+        myContent.addEventListener('click',function(){console.log('content')},false)
+    </script>
+</body>
+</html>

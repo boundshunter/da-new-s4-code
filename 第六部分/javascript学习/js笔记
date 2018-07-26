@@ -326,3 +326,168 @@ DOM
                 p.appendChild(tag);
                 最后将标签添加到id为 i1的标签中
                 document.getElementById('i1').appendChild(p);
+
+
+    提交表单：
+    <div>
+        //正常input  submit 提交表单
+        <form id="f1" action="http://www.dongao.com">
+            <input type="text">
+            <input type="submit" value="提交">
+        </form>
+        //dom方式触发onclick 提交表单
+        <a onclick="submitForm();" href="http://www.baidu.com">提交表单Dom百度</a>
+    </div>
+    <script>
+        function submitForm(){
+            document.getElementById('f1').submit();
+        }
+    </script>
+
+    其他
+        console.log()
+        alert('xxx') 弹窗，xxx弹窗内容
+        var v = confirm(弹窗信息）  选择确认true，取消false （在console下查看）
+
+        location.href
+        location.href = "http://www.dongao.com" # 重定向跳转
+        location.reload()   # 页面刷新
+        location.href = location.href   《==》 location.reload()
+
+
+        定时器
+        setInterval((function()){},5000)
+        定时执行，和终止
+
+        var obj = setInterval(function(){
+            console.log(1);执行一次
+            //clearInterval(obj);终止
+        ,1000} 间隔时间1秒
+
+        设置超时时间
+        settimeout(function(){
+            console.log('timeout')
+        ,5000} //5秒超时
+
+        删除提示显示5s后消失
+
+        <div>
+            <input type="button" value="删除" onclick="DelEle();"/>
+        </div>
+        <script>
+            function DelEle(){
+                document.getElementById('status').innerText="已删除"
+                setTimeout(function(){
+                    //5秒后，将已删除设置为空
+                    document.getElementById('status').innerText=""
+                    }
+                ,5000)
+            }
+
+        </script>
+
+        小结：
+        var obj1=setInterval(func(){},5000)
+        clearInterval(obj1)
+
+        setTimeout
+        clearTimeout
+
+
+
+    事件
+        onclick,onblur,onfocus
+        dom0 事件写到div中
+        dom1 事件写到js中
+
+        this 谁调用这个函数，this就指向谁，此处是这几个tr调用这个函数，所以this就指向这几个tr
+
+
+        onmouseover 获取鼠标指向
+        onmouseout  获取鼠标离开
+        绑定时间的2中方式
+            1、直接标签绑定
+            2、先找到标签，再去标签里面找元素，在对每个元素进行绑定
+                先获取dom对象，然后进行绑定
+
+
+        this,当前触发事件的标签
+            a.第一种绑定方式
+                <input type='button' onclick='ClickOn(this)'/>
+                self 也可以用其他任意字符串代替，只不过为了方便认为他是obj，采用self
+                function ClicnOn(self){
+                    //self 代指当前点击的标签
+                }
+            b.第二种绑定方式
+                <input id='i1' type='button'/>
+                document.getElementById('i1').onclick = function(){
+                    //this 代指当前点击的标签
+                    // onmouseover 下this 代指当前鼠标移动到标签获取的位置等
+                }
+
+            c.第三种绑定方式
+                第三个参数   true - 事件句柄在捕获阶段执行 由外向内，先显示外部div的main,在现显示内部div的content
+                           false- false- 默认。事件句柄在冒泡阶段执行 由内向外 先显示内部div的content,在现显示外部div的main
+
+                                var myMain = document.getElementById('main');
+                                var myContent = document.getElementById('content');
+                                //false 当点击到content部分，先显示content,在显示main   冒泡方式，由内向外
+                                //true 当点击到content部分，先显示main，在显示content    捕捉方式，由外向内
+                                myMain.addEventListener('click',function(){console.log('main')},false)
+                                myContent.addEventListener('click',function(){console.log('content')},false)
+
+
+                addEventListener() 方法用于向指定元素添加事件句柄
+                var mydiv = document.getElementById('i1');
+                mydiv.addEventListener('click',function(){console.log('aaa')},false)
+                mydiv.addEventListener('click',function(){console.log('bbb')},false)
+
+                addEventListener
+
+        示例：
+        <table border="1" width="300px">
+            <tr><td>0</td><td>1</td><td>2</td></tr>
+            <tr><td>0</td><td>1</td><td>2</td></tr>
+            <tr><td>0</td><td>1</td><td>2</td></tr>
+        </table>
+
+        <script>
+            var myTrs = document.getElementsByTagName('tr');
+            var len = myTrs.length;
+            for(i=0;i<len;i++){
+                myTrs[i].onmouseover = function(){
+    //                this 谁调用这个函数，this就指向谁，此处是这几个tr调用这个函数，所以this就指向这几个tr
+                    this.style.backgroundColor = 'red';
+                }
+             }
+            for(i=0;i<len;i++){
+                myTrs[i].onmouseout = function(){
+                    this.style.backgroundColor = '';
+                }
+             }
+        </script>
+
+
+        事件的属性：
+            onabort     图像的加载被中断
+            onblur      元素失去焦点
+            onchange    域的内容被改变
+            onclick     点击事件
+            ondbclick   双击事件
+            onerror     加载文档或图像时发生错误
+            onfocus     元素获取焦点
+            onselect    文本被选中
+            onsubmit    确认按钮被点击
+            onkeypress  键盘某个键被按下并松开
+            onkeydown   键盘某个键被按下
+            onkeyup     键盘某个键被松开
+            onload      一张页面或者一个图片完成加载
+            onmousedown 鼠标按钮被按下
+            onmousemove 鼠标被移动
+            onmouseover 鼠标移动到某元素
+            onmouseout  鼠标从某元素移开
+            onreset     重置按钮被点击
+            onresize    窗口或框架被重新调整大小
+            onunload    用户退出页面
+
+前端学习方法分享：

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <form id="f1" action="http://www.dongao.com">
+            <input type="text">
+            <input type="submit" value="提交">
+        </form>
+        <a onclick="submitForm();" href="http://www.baidu.com">提交表单Dom百度</a>
+    </div>
+    <script>
+        function submitForm(){
+            document.getElementById('f1').submit();
+        }
+    </script>
+</body>
+</html>

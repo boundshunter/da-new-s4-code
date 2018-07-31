@@ -1,0 +1,61 @@
+版本：
+    1.x 对IE8以下的版本兼容性最好
+    2.x
+    3.x 功能性最强
+
+jquery 导入之后
+    调用方法：
+        1、 jQuery.xxxx
+        2、 $.xxxxx
+
+转换:
+    jQuery对象的[0]个索引 ，可以转换成dom对象
+    jQuery[0] =》 Dom对象
+    Dom对象 =》 $(Dom对象)
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        jQuery.acceptData()
+        $.acceptData()
+    </script>
+
+查找元素
+    Dom
+        10个左右
+
+    jQuery
+        选择器，直接找到某个或者某类标签
+        1、id
+            $('#id')
+        2、class
+            <div class='c1'></div>
+            $(".c1")
+        3、标签
+            <div class='c1'>
+                <a>f</a>
+                <a>b</a>
+            </div>
+            <div class="c1">
+                <a>k</a>
+            </div>
+            <div class='c1'></div>
+            <div class='c2'></div>
+            $('a') 找到所有a标签
+            $('div') 同上
+
+            找到所有a标签以及class='c2'的标签
+            $('a')
+            $('.c2')
+
+            $('a,.c2,$i1') 找到a标签和class=c2标签和id=i1标签
+
+
+            层级
+                找到id='i10'下面所有的a标签
+                $('i10 a'） 找到子子孙孙的所有的
+                $('i10>a') 只找到儿子一级
+
+            基本的筛选器
+                $('#i1 a:first') 找到子子孙孙中的，id=i1下面的第一个a标签
+                $('#i1>a:first') 找到儿子中的，id=i1下面的第一个a标签
+
+

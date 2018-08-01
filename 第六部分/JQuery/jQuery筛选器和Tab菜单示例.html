@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .header{
+            background-color: black;
+            color: white;
+        }
+        .content{
+            min-height: 50px;
+
+        }
+        /*默认只有第一个显示*/
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div style="height: 400px;width: 200px;border: 1px solid #dddddd;">
+      <div class="item">
+            <div class="header">标题1</div>
+            <div id="i1" class="content">内容1</div>
+          <!--$('#i1).addClass('hide') 添加样式，如果样式里面有hide就不加，没有就加-->
+          <!--$('#i1).removeClass('hide') 移除样式-->
+      </div>
+      <div class="item">
+            <div class="header">标题2</div>
+            <div class="content hide">内容2</div>
+      </div>
+      <div class="item">
+            <div class="header">标题3</div>
+            <div class="content hide">内容3</div>
+      </div>
+    </div>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+//        给所有class=header 标签绑定一个onclick事件
+        $('.header').click(function(){
+//            console.log(this)
+//            当前点击的标签 $(this)
+//            获取某个标签的下一个标签
+//            获取某个标签的父标签
+//            获取父标签的兄弟标签
+//            获取父标签的兄弟标签下的class=content标签找到，加hide
+//            添加样式，移除样式
+//            $('#i1).addClass('hide') 添加样式，如果样式里面有hide就不加，没有就加
+//            $('#i1).removeClass('hide') 移除样式
+//            $(this).next(); 下一个
+//            $(this).prev(); 上一个
+//            $(this).parent(); 父标签
+//            $(this).children(); 子标签
+//            $(this).siblings() 获取当前标签的所有兄弟标签
+//            $(this).find('.c1'); 子子孙孙中查找
+
+
+            $(this).next().removeClass('hide');
+//            通过当前点击的this标签，找到父标签的所有兄弟标签，从兄弟标签中find到class=content的标签，加上hide
+            $(this).parent().siblings().find('.content').addClass('hide');
+
+//            链式编程,两行代码一行解决
+            $(this).next().removeClass('hide').parent().siblings().find('.content').addClass('hide');
+        })
+    </script>
+</body>
+</html>

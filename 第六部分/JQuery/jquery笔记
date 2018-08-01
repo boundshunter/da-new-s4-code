@@ -55,7 +55,69 @@ jquery 导入之后
                 $('i10>a') 只找到儿子一级
 
             基本的筛选器
+                first   last    eq  gt  lt  奇数偶数
                 $('#i1 a:first') 找到子子孙孙中的，id=i1下面的第一个a标签
-                $('#i1>a:first') 找到儿子中的，id=i1下面的第一个a标签
+                $('#i1>a:last') 找到儿子中的，id=i1下面的最后一个a标签
 
+
+                索引
+                $('i10 a:eq(0)') # 索引的是位置 id为i10的a标签的第0个值
+                                   eq
+                                   gt
+                                   lt
+
+            属性
+                根据自定义属性来获取
+                $('[alex]') 具有alex属性的所有标签
+                $('[alex="123]') 具有alex属性，值为123的标签
+
+            表单选择器
+                有自己专门的使用方式
+                   <input type="text"/>
+                   <input type="text"/>
+                   <input type="file" disabled/>
+                   <input type="password"/>
+
+                   使用属性选择器方式
+                   $('input[type="text"]') 找到所有input标签下，type=’text'的标签
+
+                   表单选择器方式
+                   $(':text') 等同于$('input[type="text"]')
+                   $(':disabled') 不可编辑的表单 disabled是表单不可编辑，默认为enabled
+
+            示例：
+                多选，全选，反选，取消
+                - 选择器
+                - $('#tb:checkbox').prop('checked');        获取值
+                - $('#tb:checkbox').prop('checked',true);   设置值
+                - jQuery方法内置方法 $('#tb:checkbox').xxx
+                  jQuery方法内置循环 $('#tb:checkbox').each(function(k){
+                                    // k 当前循环元素的索引值
+                                    //this,Dom对象，当前循环元素 $(this)
+                                    })
+                - 三元运算
+                     var v = 条件? 真值:假值
+
+
+            筛选：
+                onclick事件触发
+                    $('.header').click(function(){}
+                筛选器：
+                $('#i1).addClass('hide') 添加样式，如果样式里面有hide就不加，没有就加
+                $('#i1).removeClass('hide') 移除样式
+                $(this).next(); 下一个
+                $(this).prev(); 上一个
+                $(this).parent(); 父标签
+                $(this).children(); 子标签
+                $(this).siblings() 获取当前标签的所有兄弟标签
+                $(this).find('.c1'); 子子孙孙中查找
+
+                菜单点击缩放
+                $(this).next().removeClass('hide');
+                通过当前点击的this标签，找到父标签的所有兄弟标签，从兄弟标签中find到class=content的标签，加上hide
+                $(this).parent().siblings().find('.content').addClass('hide');
+
+
+                链式编程,两行代码一行解决 作用同上
+                $(this).next().removeClass('hide').parent().siblings().find('.content').addClass('hide');
 

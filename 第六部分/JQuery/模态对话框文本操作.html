@@ -51,28 +51,28 @@
                     <td target="hostname">1.1.1.1</td>
                     <td target="port">81</td>
                     <td>
-                        <a class="edit">编辑</a> | <a>删除</a>
+                        <a class="edit">编辑</a> | <a class="del">删除</a>
                     </td>
                 </tr>
                 <tr>
                     <td target="hostname">1.1.1.2</td>
                     <td target="port">82</td>
                     <td>
-                        <a class="edit">编辑</a> | <a>删除</a>
+                        <a class="edit">编辑</a> | <a class="del">删除</a>
                     </td>
                 </tr>
                  <tr>
                     <td target="hostname">1.1.1.3</td>
                     <td target="port">83</td>
                     <td>
-                        <a class="edit">编辑</a> | <a>删除</a>
+                        <a class="edit">编辑</a> | <a class="del">删除</a>
                     </td>
                 </tr>
                 <tr>
                     <td target="hostname">1.1.1.4</td>
                     <td target="port">84</td>
                     <td>
-                        <a class="edit">编辑</a> | <a>删除</a>
+                        <a class="edit">编辑</a> | <a class="del">删除</a>
                     </td>
                 </tr>
         </tbody>
@@ -85,10 +85,17 @@
             </div>
             <div>
                 <input type="button" value="取消" onclick="cancelMode();">
+                <input type="button" value="确认" class="commit"">
             </div>
     </div>
     <script src="jquery-3.3.1.min.js"></script>
     <script>
+        //删除功能
+        $(".del").click(function () {
+
+            $(this).parent().parent().remove();
+        });
+
         function addMode(){
             $(".popup,.shadow").removeClass('hide');
         }

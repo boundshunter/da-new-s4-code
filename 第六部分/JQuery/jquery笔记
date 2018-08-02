@@ -175,5 +175,37 @@ jquery 导入之后
             $('#i2').prop('checked')        获取值
 
 
+            .index() 获取索引位置
 
+        文档处理
+            append  标签子集的最后
+            prepend 标签子集的最前
 
+            after   标签同级后面
+            before  标签同级前面
+
+            remove  移除标签
+            empty   清空标签内容
+
+            clone   复制一份
+
+            var v = $('#t1').val();
+            var temp = "<li>" + v + "</li>"
+            $('#u1').append(temp)
+            $('#u1').prepend(temp)
+            $('#u1').after(temp)
+            $('#u1').before(temp)
+
+            用户输入为索引值，根据索引数字删除和清空对应位置标签和内容
+            $('#a2').click(function(){
+                var index = $('#t1').val();
+                $('#u1 li').eq(index).remove()
+                $('#u1 li').eq(index).empty()
+
+            })
+
+            复制按钮中使用
+            根据索引位置复制，然后将复制标签，追加到最后
+            var index = $('#t1').val();
+            var v = $('#u1 li').eq(index).cline()
+            $('#u1').append(v)

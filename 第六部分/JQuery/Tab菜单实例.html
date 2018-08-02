@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .menu{
+            height: 38px;
+            line-height: 38px;
+            background-color: #eeeeee;
+
+        }
+        .content{
+            min-height: 150px;
+            border: 1px solid #dddddd;
+
+        }
+        .hide{
+            display: none;
+        }
+        .menu .menu_item{
+            float: left;
+            border:1px solid
+            border-left-color: #000;
+            padding:0 10px;
+            cursor: pointer;
+        }
+        .active{
+            background-color: #2459a2;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div style="width: 700px;margin: 0 auto">
+        <div class="menu">
+            <div class="menu_item active" a="1">菜单一</div>
+            <div class="menu_item" a="2">菜单二</div>
+            <div class="menu_item" a="3">菜单三</div>
+        </div>
+        <div class="content">
+            <div  b="1">内容一</div>
+            <div class='hide' b="2">内容二</div>
+            <div class='hide' b="3">内容三</div>
+
+        </div>
+    </div>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $(".menu_item").click(function () {
+            //this 代指当前点击的标签
+            //对点击的标签增加active
+//            $(this).addClass('active');
+            //对其他兄弟标签 移除active
+//            $(this).siblings().removeClass('active');
+            //上面用一行表示
+            $(this).addClass('active').siblings().removeClass('active');
+            //获取菜单中a的属性值，和b去对应
+            var target = $(this).attr('a');
+            //通过content的所有孩子中找到b=a的属性值得选项，移除hide,并且给他的兄弟都增加hide
+            $(".content").children("[b='"+target+"']").removeClass('hide').siblings().addClass('hide')
+        })
+    </script>
+</body>
+</html>

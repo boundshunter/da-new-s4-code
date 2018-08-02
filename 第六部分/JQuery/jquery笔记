@@ -106,7 +106,13 @@ jquery 导入之后
                 $('#i1).addClass('hide') 添加样式，如果样式里面有hide就不加，没有就加
                 $('#i1).removeClass('hide') 移除样式
                 $(this).next(); 下一个
+                        .nextAll() 下面所有的
+                        .nextUntil('#i2')
+
                 $(this).prev(); 上一个
+                        prevAll()
+                        prevUntil(xxx)
+
                 $(this).parent(); 父标签
                 $(this).children(); 子标签
                 $(this).siblings() 获取当前标签的所有兄弟标签
@@ -120,4 +126,54 @@ jquery 导入之后
 
                 链式编程,两行代码一行解决 作用同上
                 $(this).next().removeClass('hide').parent().siblings().find('.content').addClass('hide');
+
+                $('li:eq(1)')
+                $('li').eq(1)
+                first()
+                last()
+                hasClass(classname)
+
+        文本操作
+            $(..).text()            # 获取文本内容
+            $(..).text("aaa")       # 设置文本内容
+            $(..).text("<a>1</a>">  # 设置文本内容为标签
+
+            $(..).html()            # 获取
+            $(..).html("<a>1</a>")  # 设置
+
+            $(..).val()             # 获取value
+            $(..).val("aaa")        # 设置value
+
+            $('#i1).hasClass()      # 可以做开关功能
+
+                $("#i1").click(function(){
+
+                    jquery封装了开关判断的方法   $(".c1").toggleClass('hide');
+                    if($(".c1").hasClass('hide')){
+                        $(".c1").removeClass('hide');    此部分，等同于  $(".c1").toggleClass('hide');
+                    }else{
+                        $(".c1").addClass('hide');
+                    }
+
+                    //$(".c1").toggleClass('hide');
+                })
+        样式操作
+            addClass('c1')
+            removeClass('c1')
+            toggleClass('c1')
+
+        属性操作
+            $('#i1').attr('type')           获取标签id=i1的属性，type的值，i1里有个input标签
+            $('#i1').attr('name','9999‘）   设置自定义属性
+            $('#i1').removeAttr('name')     删除属性
+
+            # 专门用户checkbox,radio
+            <input id='i2' type='checkbox'/>
+            $('#i2').prop('checked',true)    选中checkbox
+            $('#i2').prop('checked',false)   不选中checkbox
+
+            $('#i2').prop('checked')        获取值
+
+
+
 

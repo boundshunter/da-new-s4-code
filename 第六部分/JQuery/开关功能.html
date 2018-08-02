@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <input id="i1" type="button" value="开|关"/>
+    <div class="c1 hide">打开或者关闭</div>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $("#i1").click(function(){
+//            if($(".c1").hasClass('hide')){
+//                $(".c1").removeClass('hide');
+//            }else{
+//                $(".c1").addClass('hide');
+//            }
+            $(".c1").toggleClass('hide');
+        })
+    </script>
+</body>
+</html>

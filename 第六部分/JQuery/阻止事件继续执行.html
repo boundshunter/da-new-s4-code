@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--Dom 方式阻止，此处必须加return -->
+    <a onclick="return da();" href="http://www.dongao.com">东奥</a>
+
+    <!--jQuery 方式-->
+    <p>
+    <a id="i1" href="http://www.baidu.com">百度</a>
+    </p>
+
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        //Dom 方式 return true 继续，return false 阻止继续执行
+        function da() {
+            alert('123');
+            return false;
+        }
+        // jQuery 方式 return true 继续，return false 阻止继续执行
+        $('#i1').click(function(){
+            alert('456');
+            return true;
+        })
+    </script>
+</body>
+</html>

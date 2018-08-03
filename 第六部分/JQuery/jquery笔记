@@ -209,3 +209,138 @@ jquery 导入之后
             var index = $('#t1').val();
             var v = $('#u1 li').eq(index).cline()
             $('#u1').append(v)
+
+        CSS 处理
+        $('#i1').css('color','red');
+        抽屉点赞功能:
+                - $('t1').append()
+                - setInterval
+                - 透明度  1 >> 0
+                - position
+                - 字体大小
+                -$('t1').remove() 最后移除点赞效果标签
+
+                function addFavor(self){
+                //Dom对象，设置属性值
+                var fontSize = 15;
+                var top = 0;
+                var right = 0;
+                var opacity = 1;
+
+                // 对Dom 对象增加标签
+                var tag = document.createElement('span');
+                // Dom 对象 变成 jquery对象 $(tag)
+                // 设置jquery 对象内容，弹窗+1
+                $(tag).text('+1');
+                //设置对象效果参数 字体红色，初始值
+                $(tag).css('color','red');
+                $(tag).css('position','absolute');
+                $(tag).css('fontSize',fontSize + 'px');
+                $(tag).css('right',right + 'px');
+                $(tag).css('top',top + 'px');
+                $(tag).css('opacity',opacity);
+
+                //self = this, 针对当前点击对象 增加设置的tag= span 标签
+                $(self).append(tag);
+
+                // 设置定时器，每100毫秒 字体增大10，位置移动向上和向右 15，透明度减 0.1
+                var obj = setInterval(function(){
+                    fontSize = fontSize + 10;
+                    top = top - 15;
+                    right = right - 15;
+                    opacity = opacity - 0.1;
+
+                    // 每次css属性变动一次，执行一次tag赋值，显示每次变动效果
+                    $(tag).css('fontSize',fontSize + 'px');
+                    $(tag).css('right',right + 'px');
+                    $(tag).css('top',top + 'px');
+                    $(tag).css('opacity',opacity);
+
+                    // 当透明度 小于 0
+                    if(opacity < 0){
+                        //清除定时器
+                        clearInterval(obj);
+                        // 移除+1效果标签
+                        $(tag).remove();
+                    }
+                },100);
+            }
+
+
+        位置
+            window代指浏览器的滚轮位置
+            $(window).scrollTop()        获取
+            $(window).scrollTop(0)       设置 0为返回顶部
+            scrollLeft([val])            left,right 操作同上
+
+            $('div').scrollTop()         首先div内部有滚轮，然后指定div的滚轮位置
+
+
+            offset                       指定标签在html中的坐标
+            offset()                     获取当前标签坐标，左上角
+
+            offset().left                左侧坐标
+            offset().top                 上部坐标
+
+            获取坐标怎么使用
+
+
+            position()                  指定标签对父标签relative的坐标
+
+            <div style="position:relative">
+                <div>
+                    <div id='i1' style='position:absolute;height:80px;border:1px'></div>
+                </div>
+            </div>
+
+            $('i1').height()            获取标签的高度，纯高度
+            $('i1').innerHeight()       获取边距+纯高度+？
+            $('i1').outerHeight()       获取表框+纯高度+？
+            $('i1').outerHeight(true)   获取边框+纯高度+？
+
+        事件绑定方式
+            Dom 三种绑定方式
+            jQuery:
+                $('i1').click()
+                $('i1').bind('click',function(){})  绑定
+                $('i1').unbind('click',function(){
+                }) 解绑
+
+                .c1下面的a标签绑定事件
+                $('.c1').delegate('a','click',function(){
+                })
+
+                $('.c1').undelegate('a','click',function(){
+                })
+
+                $（'.c1').on('click',function(){
+                })
+                $（'.c1').off('click',function(){
+                })
+
+
+                delegate 叫委托, 对于增加append的东西，同样想具有某个功能，就需要使用到delegate的委托方式，其他方式都不行
+                .c1下面的a标签绑定事件
+                $('.c1').delegate('a','click',function(){
+                })
+
+                $('.c1').undelegate('a','click',function(){
+                })
+
+                给新ul标签下，新增加的li标签绑定click事件
+                $('ul').delegate('li','click',function(){
+                })
+
+        当页面框架加载完成之后自动执行，*****必须要等待所有元素加载完成，比如图片全部加载
+        $(function(){
+        }
+
+        jQuery 扩展
+            $.extend        $.方法
+            $.fn.extend     $.(选择器).方法
+
+            (function(){
+                var status = 1;
+                // 封装变量
+            })(jQuery)
+

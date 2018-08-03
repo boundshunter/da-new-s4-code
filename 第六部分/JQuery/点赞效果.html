@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container{
+            padding: 50px;
+            border: 1px solid #dddddd;
+
+        }
+        .item{
+            width: 40px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">
+            <span>赞</span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="item">
+            <span>赞</span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="item">
+            <span>赞</span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="item">
+            <span>赞</span>
+        </div>
+    </div>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $(".item").click(function(){
+            //对class=item 使用click事件，调用addfavor
+            addFavor(this);
+        })
+
+        function addFavor(self){
+            //Dom对象，设置属性值
+            var fontSize = 15;
+            var top = 0;
+            var right = 0;
+            var opacity = 1;
+
+            // 对Dom 对象增加标签
+            var tag = document.createElement('span');
+            // Dom 对象 变成 jquery对象 $(tag)
+            // 设置jquery 对象内容，弹窗+1
+            $(tag).text('+1');
+            //设置对象效果参数 字体红色，初始值
+            $(tag).css('color','red');
+            $(tag).css('position','absolute');
+            $(tag).css('fontSize',fontSize + 'px');
+            $(tag).css('right',right + 'px');
+            $(tag).css('top',top + 'px');
+            $(tag).css('opacity',opacity);
+
+            //self = this, 针对当前点击对象 增加设置的tag= span 标签
+            $(self).append(tag);
+
+            // 设置定时器，每100毫秒 字体增大10，位置移动向上和向右 15，透明度减 0.1
+            var obj = setInterval(function(){
+                fontSize = fontSize + 10;
+                top = top - 15;
+                right = right - 15;
+                opacity = opacity - 0.1;
+
+                // 每次css属性变动一次，执行一次tag赋值，显示每次变动效果
+                $(tag).css('fontSize',fontSize + 'px');
+                $(tag).css('right',right + 'px');
+                $(tag).css('top',top + 'px');
+                $(tag).css('opacity',opacity);
+
+                // 当透明度 小于 0
+                if(opacity < 0){
+                    //清除定时器
+                    clearInterval(obj);
+                    // 移除+1效果标签
+                    $(tag).remove();
+                }
+            },100);
+        }
+    </script>
+</body>
+</html>

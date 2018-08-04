@@ -1,0 +1,72 @@
+1、JS 正则
+    正则只需要掌握2个 使用方法
+    test    -   判断字符串是否符合规定的正则
+    exec    -   获取匹配的数据
+
+    rep = /\d+/;
+    rep.test('abc111abc');
+    # true 因为里面含有数字，可以换种方式
+
+    rep = /^\d+$/;  完全匹配数字
+    rep.test('abc111abc');
+    # false
+    rep.test('11111');
+    # true
+        rep = /^\d+$/;
+        /^\d+$/
+        rep.test('11aa22');
+        false
+        rep.test('1122');
+        true
+
+    JavaScript is more fun than Java or JavaBeans
+    var pattern = /\bJava\w*\b/; 默认只匹配第一个
+    pattern.exec(text) 显示第一个匹配到结果
+
+    var pattern = /\bJava（\w*)\b/; 分组匹配
+    pattern.exec(text) 将匹配到的第一个结果，在进行精确分组，分成Java和 w* 部分
+
+    var pattern = /\bJava\w*\b/g; 全局匹配，每次执行只匹配一个，
+    顺序执行，类似迭代器，最后一次匹配到null，表示结束，然后重头开始匹配
+    pattern.exec(text) 将匹配到的第一个结果，在进行精确分组，分成Java和 w* 部分
+    var pattern = /\bJava\w*\b/g;  同理，顺序全局分组匹配
+
+    g 表示全局匹配
+    i 表示不区分大小写
+    m 表示多行匹配
+      其实默认情况下都是多行匹配，m的作用体现在，当字符串里面有换行，又有开头结束符(^$)时
+      这时想要多行匹配，就只能使用m
+      ** m 只存在于有换行符\n 区分的带有^$符的字符串中
+
+      text = "JavaScript is more fun than \nJava or JavaBeans"
+      var pattern = /^Java(\w*)/gm
+      pattern.exec(text)
+
+    - 登录注册表单验证
+2、组件
+    功能不同，学习不同组件的功能
+        组件名称和适用范围
+        BootStrap 前后台都适用
+                - css
+                - js
+        jQueryUI  侧重于后台
+                - css
+                - js
+        EasyUI  侧重于后台  ajax比较多
+                - css
+                - js
+
+
+自定义表单验证插件：
+        表单验证只是简单的帮助后端先提供一层验证，后端还是需要进行验证，浏览器是可以禁止js的
+        表单验证目的是为了减少发送到后端的验证次数，减少和后端数据交互
+
+
+
+        BootStrap
+            一、响应式布局，根据页面大小不同，css做出不同的反应，
+                @media
+            二、图标、字体
+                @font-face
+                让自己的样式绝对生效，就在后面加  !important
+            三、

@@ -1,0 +1,33 @@
+WEB 框架
+    什么是MVC
+
+    DB操作   模板文件  业务处理
+    Model   View    Controller
+    MVC 框架就是对文件夹的一个分类，文件夹职责的划分
+
+    Model   Template    View
+    MTV
+    DJango 是一个基于 MTV    的框架
+
+
+    创建
+    django-admin startproject mysite
+    目录结构
+    mysite
+        - mysite        # 对整个程序进行配置
+            - init
+            - settings  # 配置文件
+            - url       # URL对应关系
+            - wsgi      # 遵循WSGI规范，python一般默认用uwsgi + nginx
+        - manage.py     # 管理Django程序:
+                          ORM(关系对象映射)
+                          使用: 基于manage.py 去管理Django
+                          - python manage.py
+                          - python manage.py startapp xx
+                          - python manage.py makemigrations
+                          - python manage.py migrate
+
+    pycharm 也能创建Django程序
+
+    启动
+    python manage.py runserver 127.0.0.1:8001
